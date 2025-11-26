@@ -1,0 +1,57 @@
+#############################
+##  BEST CLI & CODE TOOLS  ##
+#############################
+
+# Nvidia Drivers
+# Xwayland
+# tmux
+# ls && tree >>> eza
+# fzf
+# oh-my-zsh
+# yazi
+# nvm >>> fnm
+# NeoVim
+# LazyVim
+# LazyGit
+# Git
+# GitHub CLI
+# Starship
+# grep >>> ripgrep
+# Stow
+# bash >>> zsh
+# fastfetch
+# cmatrix?
+# FFmpeg
+# FIGlet?
+# du >>> ncdu
+# Tldr
+# cd >>> zoxide
+# navi?
+# find >>> fd-find
+# cursor || vscode
+# Standard Terminal >>> Cosmic || Alacritty (Terminal)
+# cat >>> bat
+# htop >>> btop
+# jq
+# zsh-you-should-use
+# locate?
+# sistemd?
+# linux homebrew
+# keyd
+# tmux-sessionazer.sh?
+# trufflehog
+
+##########################
+## GENERAL TOOLS & APPS ##
+##########################
+
+# betterbird
+# brave-browser >>> vivaldi >>> qutebrowser? 
+# steam
+# discord
+# libreoffice
+# 7zip
+# ProtonVPN
+# KVM + ?
+# Obsidian
+# QBittorrent

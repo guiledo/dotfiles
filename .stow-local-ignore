@@ -1,0 +1,15 @@
+# Ignorar git
+\.git
+\.gitignore
+
+# Ignorar ficheiros de documentação e licença
+README\.md
+LICENSE
+COPYING
+
+# Ignorar ficheiros do sistema ou temporários
+\.DS_Store
+\.swp
+
+# Ignorar pasta específica
+ignore_stow

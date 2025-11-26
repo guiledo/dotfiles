@@ -1,0 +1,253 @@
+# --------------------------------------------------------------------------------
+# OH MY ZSH!
+# --------------------------------------------------------------------------------
+
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+
+# Path to your Oh My Zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time Oh My Zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="robbyrussell"
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+
+# Uncomment the following line to change how often to auto-update (in days).
+# zstyle ':omz:update' frequency 13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+  git
+  zsh-autosuggestions
+  fast-syntax-highlighting
+  you-should-use
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='nvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch $(uname -m)"
+
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# --------------------------------------------------------------------------------
+# USER CHANGES
+# --------------------------------------------------------------------------------
+
+# --- 1. EXPORTS & PATH ---
+export PATH="$HOME/bin:$HOME/.local/bin:usr/local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+export STARSHIP_CACHE=~/.starship/cache
+
+# --- 2. ZSH OPTIONS --- 
+setopt extendedglob
+setopt appendhistory
+setopt sharehistory
+setopt incappendhistory
+setopt histignoredups
+setopt histignorespace
+SAVEHIST=2000
+HISTSIZE=1000
+
+# --- 3. ALIASES ---
+# File System
+alias chmodx='chmod +x'
+alias cat='batcat '
+alias count='ls -1 | wc -l'
+alias l='eza --icons --group-directories-first'
+alias la='eza -alF --icons --group-directories-first --git'
+alias ll='eza -a --icons --group-directories-first'
+alias mk='mkdir -p'
+alias mkcd='func(){ mkdir -p "$1" && cd "$1"; }; func'
+alias tree='eza --tree --icons'
+# Navigation
+alias .='whoami && pwd'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias dev='cd ~/dev'
+alias devw='cd ~/dev/work && eza -alF --icons --group-directories-first --git'
+alias devp='cd ~/dev/personal/personal && eza -alF --icons --group-directories-first --git'
+alias dot='cd ~/dotfiles/ && eza -alF --icons --group-directories-first --git'
+alias tools='~/dotfiles/.ignore_stow/tools.txt'
+alias tmp='cd /tmp && mktemp tempXXXXXX'
+# Applications 
+alias v='nvim '
+alias zshrc='nvim ~/.zshrc'
+# Network
+alias myip="ip a | grep 'inet ' && curl ifconfig.me"
+alias ports='ss -tuln'
+# Package Management
+alias install='sudo apt install'
+alias purge='sudo apt purge -y && sudo apt autoremove --purge -y'
+alias update='sudo apt update && sudo apt upgrade -y && sudo apt clean && sudo apt autoremove -y'
+alias update-all='$HOME/dotfiles/.ignore_stow/update-all.sh'
+# Process Management
+alias k='kill -9'
+alias kp='pkill -9'
+alias psg='ps aux | grep -i'
+# Search
+alias fd='fdfind -H -I'
+alias rg='rg --one-file-system'
+# Shell & System
+alias cls='clear'
+alias hist='history | less'
+alias ff='fastfetch'
+alias ncdu='ncdu -x'
+alias reload='exec zsh'
+alias sourcez='source ~/.zshrc'
+alias sudo='sudo '
+# Git
+alias ga='git add .'
+alias gamend='git commit --amend --no-edit'
+alias gb='git branch -v'
+alias gc='git-commit'
+alias gc-='git-commit-simple'
+alias gco='git checkout'
+alias gco-='git checkout -'
+alias gdiff='git diff'
+alias gdstage='git diff --staged'
+alias gf='git fetch'
+alias gl='git log --oneline --graph --decorete --all'
+alias gll='git log --oneline --graph --decorete'
+alias gp='git push'
+alias gur='git pull --rebase'
+alias gr='git reflog'
+alias gs='git status -s'
+alias gsw='git switch'
+alias gu='git pull'
+alias gunstage='git reset HEAD --'
+alias repo='git init && gh repo create --private --source=. --remote=origin && git add . && git commit -m "First upload" && git push -u --all && gh browse'
+# Stow
+alias syncdot='$HOME/dotfiles/.ignore_stow/sync.sh'
+
+# --- 4. FUNCTIONS ---
+# If not running interactively, don't do anything
+case $- in
+*i*) ;;
+*) return ;;
+esac
+
+# Tmux auto-start
+## if command -v tmux>/dev/null; then
+## [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux new-session -A -s main
+## fi
+
+# Better Yazi Startup
+function y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
+}
+
+# Better Git Commit
+git-commit() {
+  git commit -m "$*"
+}
+
+# Simple Git Commit
+git-commit-simple() {
+  git add -A
+  git commit -m "[auto] Minor change in the codebase."
+}
+
+# --- 5. SCRIPTS ---
+
+# --- 6. MISC ---
+# Oh-My-Zsh default and simple prompt in the absence of Starship
+# prompt_context(){}
+
+# Homebrew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# Starship
+eval "$(starship init zsh)"
+# FNM
+eval "$(fnm env --use-on-cd --shell zsh)"
+# Zoxide
+eval "$(zoxide init zsh)"
+

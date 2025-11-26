@@ -1,0 +1,16 @@
+# Evita arquivos temporários e sensíveis
+*.swp
+*.swo
+*.bak
+*.tmp
+*.log
+**/cache/
+**/history/
+**/.DS_Store
+
+# Ignora chaves privadas
+*.pem
+*.key
+*.pub
+.ssh/
+
