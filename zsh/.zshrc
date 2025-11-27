@@ -116,11 +116,12 @@ source $ZSH/oh-my-zsh.sh
 # USER CHANGES
 # --------------------------------------------------------------------------------
 
-# --- 1. EXPORTS & PATH ---
+# --- 1. SHELL INTEGRATION, EXPORTS & PATH ---
 export PATH="$HOME/bin:$HOME/.local/bin:usr/local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 export STARSHIP_CACHE=~/.starship/cache
+source <(fzf --zsh)
 
 # --- 2. ZSH OPTIONS --- 
 setopt extendedglob
@@ -149,8 +150,9 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias dev='cd ~/dev'
 alias devw='cd ~/dev/work && eza -alF --icons --group-directories-first --git'
-alias devp='cd ~/dev/personal/personal && eza -alF --icons --group-directories-first --git'
+alias devp='cd ~/dev/personal && eza -alF --icons --group-directories-first --git'
 alias dot='cd ~/dotfiles/ && eza -alF --icons --group-directories-first --git'
+alias fzf='fzf -e'
 alias tools='~/dotfiles/.ignore_stow/tools.txt'
 alias tmp='cd /tmp && mktemp tempXXXXXX'
 # Applications 
@@ -250,4 +252,3 @@ eval "$(starship init zsh)"
 eval "$(fnm env --use-on-cd --shell zsh)"
 # Zoxide
 eval "$(zoxide init zsh)"
-
