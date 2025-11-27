@@ -215,6 +215,27 @@ alias repo='git init && gh repo create --private --source=. --remote=origin && g
 alias syncdot='$HOME/dotfiles/.ignore_stow/sync.sh'
 
 # --- 4. FUNCTIONS ---
+
+# Custom fzf widget and binding for CTRL-T to open a file in Neovim.
+fzf-open-file-in-nvim-widget() {
+  local file
+  # Use fdfind and fzf to select a single file.
+  file=$(fdfind --type f --strip-cwd-prefix --hidden --follow --exclude ".git" --exclude ".local/state" |
+         fzf --prompt="Open File> " \
+             --preview 'bat -n --color=always {}')
+
+  # If a file was selected, place `nvim [file]` in the buffer and execute it.
+  if [[ -n "$file" ]]; then
+    BUFFER="nvim ${file}"
+    zle accept-line
+  fi
+  zle reset-prompt
+}
+# Create the widget for Zsh's line editor (ZLE).
+zle -N fzf-open-file-in-nvim-widget
+# Bind CTRL-T to our new widget.
+bindkey '^T' fzf-open-file-in-nvim-widget
+
 # If not running interactively, don't do anything
 case $- in
 *i*) ;;
