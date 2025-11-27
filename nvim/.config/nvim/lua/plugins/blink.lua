@@ -1,102 +1,81 @@
 return {
   'saghen/blink.cmp',
-  -- optional: provides snippets for the snippet source
-  dependencies = { 'rafamadriz/friendly-snippets' },
-
-  -- use a release tag to download pre-built binaries
+  dependencies = {
+    'rafamadriz/friendly-snippets',
+    'brenoprata10/nvim-highlight-colors', -- Added to ensure the require below works
+  },
   version = '1.*',
-  -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
-  -- build = 'cargo build --release',
-  -- If you use nix, you can build from source using latest nightly rust with:
-  -- build = 'nix run .#build-plugin',
+
   opts = {
+    -- 1. Completion Menu / Appearance
     completion = {
-            menu = {
-              draw = {
-                components = {
-                  kind_icon = {
-                    text = function(ctx)
-                      local icon = ctx.kind_icon
-                      if ctx.item.source_name == "LSP" then
-                        local color_item = require("nvim-highlight-colors").format(ctx.item.documentation, { kind = ctx.kind })
-                        if color_item and color_item.abbr ~= "" then
-                          icon = color_item.abbr
-                        end
-                      end
-                      return icon .. ctx.icon_gap
-                    end,
-                    highlight = function(ctx)
-                      local highlight = "BlinkCmpKind" .. ctx.kind
-                      if ctx.item.source_name == "LSP" then
-                        local color_item = require("nvim-highlight-colors").format(ctx.item.documentation, { kind = ctx.kind })
-                        if color_item and color_item.abbr_hl_group then
-                          highlight = color_item.abbr_hl_group
-                        end
-                      end
-                      return highlight
-                    end,
-                },
-              },
+      menu = {
+        draw = {
+          components = {
+            kind_icon = {
+              text = function(ctx)
+                local icon = ctx.kind_icon
+                if ctx.item.source_name == "LSP" then
+                  local color_item = require("nvim-highlight-colors").format(ctx.item.documentation, { kind = ctx.kind })
+                  if color_item and color_item.abbr and color_item.abbr ~= "" then
+                    icon = color_item.abbr
+                  end
+                end
+                return icon .. ctx.icon_gap
+              end,
+              highlight = function(ctx)
+                local highlight = "BlinkCmpKind" .. ctx.kind
+                if ctx.item.source_name == "LSP" then
+                  local color_item = require("nvim-highlight-colors").format(ctx.item.documentation, { kind = ctx.kind })
+                  if color_item and color_item.abbr_hl_group then
+                    highlight = color_item.abbr_hl_group
+                  end
+                end
+                return highlight
+              end,
             },
           },
         },
+      },
+    },
 
-    -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
-    -- 'super-tab' for mappings similar to vscode (tab to accept)
-    -- 'enter' for enter to accept
-    -- 'none' for no mappings
-    --
-    -- All presets have the following mappings:
-    -- C-space: Open menu or open docs if already open
-    -- C-n/C-p or Up/Down: Select next/previous item
-    -- C-e: Hide menu
-    -- C-k: Toggle signature help (if signature.enabled = true)
-    --
-    -- See :h blink-cmp-config-keymap for defining your own keymap
-
+    -- 2. Keymappings
     keymap = {
-      -- We set the preset to 'none' or 'default' to have full control, 
-      -- or just override specific keys. 
-      -- Here we override 'default' to ensure strict <Tab> behavior.
       preset = "default",
 
-      ['<Tab>'] = {
-        function(cmp)
-          if cmp.snippet_active() then return cmp.accept() end
-        end,
-        'select_and_accept',
-        'snippet_forward',
-        'fallback'
-      },
+      -- THE "PRO" TAB LOGIC
+      -- 1. If menu is open -> Accept (select_and_accept)
+      -- 2. If snippet is active -> Jump to next placeholder (snippet_forward)
+      -- 3. Otherwise -> Regular Tab indent (fallback)
+      ['<Tab>'] = { 'select_and_accept', 'snippet_forward', 'fallback' },
 
-      -- Optional: Map Enter to just newline to avoid accidents
+      -- Shift+Tab to jump backward in snippets
+      ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
+
+      -- Disable Enter to prevent accidental accept
       ['<CR>'] = { 'fallback' },
 
-      -- Maintain standard navigation
+      -- Standard navigation
       ['<C-n>'] = { 'select_next', 'fallback' },
       ['<C-p>'] = { 'select_prev', 'fallback' },
       ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
       ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
     },
 
-    -- Strictness: Ensure we only see high-quality sources in the menu
+    -- 3. Sources (Strict)
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },
-      -- Ensure 'copilot' is NOT in this list
+      -- 'copilot' is intentionally excluded here to be handled by copilot.lua
     },
 
+    -- 4. Appearance
     appearance = {
-      -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-      -- Adjusts spacing to ensure icons are aligned
       nerd_font_variant = 'mono'
     },
 
-    -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
-    -- You may use a lua implementation instead by using `implementation = "lua"` or fallback to the lua implementation,
-    -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
-    --
-    -- See the fuzzy documentation for more information
+    -- 5. Fuzzy Matching (Performance)
     fuzzy = { implementation = "prefer_rust_with_warning" }
   },
+
   opts_extend = { "sources.default" },
 }
