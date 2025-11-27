@@ -55,31 +55,40 @@ return {
     -- See :h blink-cmp-config-keymap for defining your own keymap
 
     keymap = {
-      preset = 'default',
-      -- CRITICAL OVERRIDE:
-      -- Force <CR> (Enter) to fallback to default behavior (insert newline)
-      -- instead of accepting the completion.
-      ["<CR>"] = { "fallback" },
+      -- We set the preset to 'none' or 'default' to have full control, 
+      -- or just override specific keys. 
+      -- Here we override 'default' to ensure strict <Tab> behavior.
+      preset = "default",
 
-      -- Explicitly ensure C-y accepts (redundant with preset, but safe)
-      ["<C-y>"] = { "select_and_accept" },
+      ['<Tab>'] = {
+        function(cmp)
+          if cmp.snippet_active() then return cmp.accept() end
+        end,
+        'select_and_accept',
+        'snippet_forward',
+        'fallback'
+      },
 
-      -- Optional: Map Tab to strictly navigate snippets or fallback
-      -- This prevents Tab from "accidentally" accepting completions
-      ["<Tab>"] = { "snippet_forward", "fallback" },
-      ["<S-Tab>"] = { "snippet_backward", "fallback" },
+      -- Optional: Map Enter to just newline to avoid accidents
+      ['<CR>'] = { 'fallback' },
+
+      -- Maintain standard navigation
+      ['<C-n>'] = { 'select_next', 'fallback' },
+      ['<C-p>'] = { 'select_prev', 'fallback' },
+      ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
+      ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
+    },
+
+    -- Strictness: Ensure we only see high-quality sources in the menu
+    sources = {
+      default = { "lsp", "path", "snippets", "buffer" },
+      -- Ensure 'copilot' is NOT in this list
     },
 
     appearance = {
       -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
       -- Adjusts spacing to ensure icons are aligned
       nerd_font_variant = 'mono'
-    },
-
-    -- Default list of enabled providers defined so that you can extend it
-    -- elsewhere in your config, without redefining it, due to `opts_extend`
-    sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer' },
     },
 
     -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
