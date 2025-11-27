@@ -295,7 +295,7 @@ format = "[ \ueab5 ](fg:memory bold)[$symbol ${ram} ${swap}]($style)" # \u3009
 style = "fg:memory"
 symbol = "\ueb50 \uebcb" # "\ueb50 \uebcb" \uf1ec '﬙ 北' '﬙ 痢' # '﬙ 󰾵' # '󰍛 󰾵' # '﬙ 󰾴' # '﬙ 󰾶' '﬙ 󰣂'
 threshold = 75
-disabled = false
+disabled = true
 
 [cmd_duration]
 format = "[ \ueab5 \uf017 $duration]($style)" # \ueab5 \uf017   

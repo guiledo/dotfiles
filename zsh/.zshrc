@@ -125,11 +125,28 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(starship init zsh)"
 eval "$(fnm env --use-on-cd --shell zsh)"
 eval "$(zoxide init zsh)"
-export FZF_DEFAULT_COMMAND='fdfind --type f --strip-cwd-prefix --hidden --follow --exclude .git --exclude .local/state'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always {}' --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+# By defining `fzf-file-widget` before sourcing the fzf script, we can override
+# the default ^T behavior to open the selected file directly in Neovim.
+fzf-file-widget() {
+  local file
+  file=$(fdfind --type f --strip-cwd-prefix --hidden --follow --exclude ".git" --exclude ".local/state" |
+         fzf --prompt="Open File> " \
+             --preview 'bat -n --color=always {}' \
+             --bind 'ctrl-/:change-preview-window(down|hidden|)')
+
+  if [[ -n "$file" ]]; then
+    BUFFER="nvim ${file}"
+    zle accept-line
+  fi
+
+  zle reset-prompt
+}
+
+# Keep custom ALT+C behavior to change directory.
 export FZF_ALT_C_COMMAND='fdfind --type d --strip-cwd-prefix --hidden --follow --exclude .git --exclude .local/state'
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200' --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+
+# Source the fzf keybindings script. It will automatically pick up our custom fzf-file-widget for ^T.
 source <(fzf --zsh)
 
 # --- 2. ZSH OPTIONS --- 
@@ -247,36 +264,7 @@ git-commit-simple() {
   git commit -m "[auto] Minor change in the codebase."
 }
 
-# fzf
-fzf-nvim-widget() {
-  local files=$(fdfind --type f --strip-cwd-prefix --hidden --follow --exclude .git --exclude .local/state | \
-                fzf --multi --preview 'bat -n --color=always {}')
 
-  if [[ -n "$files" ]]; then
-    files=$(echo "$files" | tr '\n' ' ')
-    BUFFER="nvim $files"
-    zle accept-line  # Isso garante que o comando rode (Enter automático)
-  fi
-  zle reset-prompt
-}
-zle -N fzf-nvim-widget
-
-fzf-cd-custom-widget() {
-  local dir=$(fdfind --type d --strip-cwd-prefix --hidden --follow --exclude .git --exclude .local/state | \
-              fzf --preview 'tree -C {} | head -200')
-  
-  if [[ -n "$dir" ]]; then
-    BUFFER="cd $dir"
-    zle accept-line  # Executa o CD imediatamente
-  fi
-  zle reset-prompt
-}
-zle -N fzf-cd-custom-widget
-
-# --- 5. KEYBINDS ---
-bindkey '^[f' fzf-nvim-widget
-bindkey '^[d' fzf-cd-custom-widget
-bindkey '^T' fzf-file-widget
 
 # --- 6. MISC ---
 # Oh-My-Zsh default and simple prompt in the absence of Starship
