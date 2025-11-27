@@ -125,29 +125,12 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(starship init zsh)"
 eval "$(fnm env --use-on-cd --shell zsh)"
 eval "$(zoxide init zsh)"
-# By defining `fzf-file-widget` before sourcing the fzf script, we can override
-# the default ^T behavior to open the selected file directly in Neovim.
-fzf-file-widget() {
-  local file
-  file=$(fdfind --type f --strip-cwd-prefix --hidden --follow --exclude ".git" --exclude ".local/state" |
-         fzf --prompt="Open File> " \
-             --preview 'bat -n --color=always {}' \
-             --bind 'ctrl-/:change-preview-window(down|hidden|)')
-
-  if [[ -n "$file" ]]; then
-    BUFFER="nvim ${file}"
-    zle accept-line
-  fi
-
-  zle reset-prompt
-}
-
 # Keep custom ALT+C behavior to change directory.
 export FZF_ALT_C_COMMAND='fdfind --type d --strip-cwd-prefix --hidden --follow --exclude .git --exclude .local/state'
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200' --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 
-# Source the fzf keybindings script. It will automatically pick up our custom fzf-file-widget for ^T.
-source <(fzf --zsh)
+# Disable the default CTRL-T binding from the fzf script so we can create our own.
+FZF_CTRL_T_COMMAND='' source <(fzf --zsh)
 
 # --- 2. ZSH OPTIONS --- 
 setopt extendedglob
