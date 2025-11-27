@@ -121,6 +121,15 @@ export PATH="$HOME/bin:$HOME/.local/bin:usr/local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 export STARSHIP_CACHE=~/.starship/cache
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(starship init zsh)"
+eval "$(fnm env --use-on-cd --shell zsh)"
+eval "$(zoxide init zsh)"
+export FZF_DEFAULT_COMMAND='fdfind --type f --strip-cwd-prefix --hidden --follow --exclude .git --exclude .local/state'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always {}' --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+export FZF_ALT_C_COMMAND='fdfind --type d --strip-cwd-prefix --hidden --follow --exclude .git --exclude .local/state'
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200' --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 source <(fzf --zsh)
 
 # --- 2. ZSH OPTIONS --- 
@@ -238,17 +247,38 @@ git-commit-simple() {
   git commit -m "[auto] Minor change in the codebase."
 }
 
-# --- 5. SCRIPTS ---
+# fzf
+fzf-nvim-widget() {
+  local files=$(fdfind --type f --strip-cwd-prefix --hidden --follow --exclude .git --exclude .local/state | \
+                fzf --multi --preview 'bat -n --color=always {}')
+
+  if [[ -n "$files" ]]; then
+    files=$(echo "$files" | tr '\n' ' ')
+    BUFFER="nvim $files"
+    zle accept-line  # Isso garante que o comando rode (Enter automático)
+  fi
+  zle reset-prompt
+}
+zle -N fzf-nvim-widget
+
+fzf-cd-custom-widget() {
+  local dir=$(fdfind --type d --strip-cwd-prefix --hidden --follow --exclude .git --exclude .local/state | \
+              fzf --preview 'tree -C {} | head -200')
+  
+  if [[ -n "$dir" ]]; then
+    BUFFER="cd $dir"
+    zle accept-line  # Executa o CD imediatamente
+  fi
+  zle reset-prompt
+}
+zle -N fzf-cd-custom-widget
+
+# --- 5. KEYBINDS ---
+bindkey '^[f' fzf-nvim-widget
+bindkey '^[d' fzf-cd-custom-widget
+bindkey '^T' fzf-file-widget
 
 # --- 6. MISC ---
 # Oh-My-Zsh default and simple prompt in the absence of Starship
 # prompt_context(){}
 
-# Homebrew
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-# Starship
-eval "$(starship init zsh)"
-# FNM
-eval "$(fnm env --use-on-cd --shell zsh)"
-# Zoxide
-eval "$(zoxide init zsh)"
