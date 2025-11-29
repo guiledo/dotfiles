@@ -6,6 +6,8 @@ return {
   },
   version = '1.*',
 
+  disabled = true, -- disabled for study purpose
+
   opts = {
     -- 1. Completion Menu / Appearance
     completion = {
