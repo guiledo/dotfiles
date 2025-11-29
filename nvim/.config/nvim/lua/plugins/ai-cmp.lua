@@ -8,7 +8,7 @@
 --        enabled = true,
 --        auto_trigger = true,
 --        keymap = {
---          accept = "<C-l>", -- Explicitly map Control+L to accept AI
+--          accept = "<C-y>", -- Explicitly map Control+Y to accept AI
 --          next = "<M-]>",
 --          prev = "<M-[>",
 --          dismiss = "<C-]>",
