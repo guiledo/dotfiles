@@ -164,7 +164,8 @@ alias dot='cd ~/dotfiles/ && eza -alF --icons --group-directories-first --git'
 alias fzf='fzf -e'
 alias tools='~/dotfiles/.ignore_stow/tools.txt'
 alias tmp='cd /tmp && mktemp tempXXXXXX'
-# Applications 
+# Applications
+alias open='xdg-open'
 alias v='nvim '
 alias zshrc='nvim ~/.zshrc'
 # Network
