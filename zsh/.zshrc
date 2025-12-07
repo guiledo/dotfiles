@@ -228,7 +228,7 @@ fzf-open-file-in-nvim-widget() {
 
   # If a file was selected, place `nvim [file]` in the buffer and execute it.
   if [[ -n "$file" ]]; then
-    BUFFER="nvim ${file}"
+    BUFFER="nvim ${(q)file}"
     zle accept-line
   fi
   zle reset-prompt
@@ -252,7 +252,7 @@ fzf-cd-widget() {
 
   # Se um diretório foi selecionado, usa 'z' (zoxide) para navegar.
   if [[ -n "$dir" ]]; then
-      BUFFER="z ${dir}"
+    BUFFER="z ${(q)dir}"
       zle accept-line
   fi
  
