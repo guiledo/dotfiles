@@ -248,14 +248,14 @@ fzf-cd-widget() {
   # --exclude .git: ignora a pasta versionada para reduzir ruído.
   dir=$(fdfind --type d --strip-cwd-prefix --hidden --follow --exclude ".git" --exclude ".local/state" | \
       fzf --prompt="Navigate> " \
-          --preview 'eza --tree --level=1 --color=always {}'
+      --preview 'eza --tree --level=1 --color=always {}')
 
   # Se um diretório foi selecionado, usa 'z' (zoxide) para navegar.
   if [[ -n "$dir" ]]; then
       BUFFER="z ${dir}"
       zle accept-line
   fi
-  
+ 
   zle reset-prompt
 }
 
