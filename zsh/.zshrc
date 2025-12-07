@@ -218,13 +218,13 @@ alias syncdot='$HOME/dotfiles/.ignore_stow/sync.sh'
 
 # --- 4. FUNCTIONS ---
 
-# Custom fzf widget and binding for CTRL-T to open a file in Neovim.
+# Custom fzf widget and binding for CTRL-f to open a file in Neovim.
 fzf-open-file-in-nvim-widget() {
   local file
   # Use fdfind and fzf to select a single file.
   file=$(fdfind --type f --strip-cwd-prefix --hidden --follow --exclude ".git" --exclude ".local/state" |
          fzf --prompt="Open File> " \
-             --preview 'bat -n --color=always {}')
+             --preview 'batcat -n --color=always {}')
 
   # If a file was selected, place `nvim [file]` in the buffer and execute it.
   if [[ -n "$file" ]]; then
@@ -235,8 +235,35 @@ fzf-open-file-in-nvim-widget() {
 }
 # Create the widget for Zsh's line editor (ZLE).
 zle -N fzf-open-file-in-nvim-widget
-# Bind CTRL-T to our new widget.
-bindkey '^T' fzf-open-file-in-nvim-widget
+# Bind CTRL-f to our new widget.
+bindkey '^f' fzf-open-file-in-nvim-widget
+
+# Custom fzf widget and binding for CTRL-g to open a folder.
+fzf-cd-widget() {
+  local dir
+  # Busca apenas diretórios (--type d) a partir do local atual.
+  # Flags de otimização:
+  # --strip-cwd-prefix: remove o './' inicial para estética.
+  # --hidden: inclui diretórios ocultos (configurações, etc).
+  # --exclude .git: ignora a pasta versionada para reduzir ruído.
+  dir=$(fdfind --type d --strip-cwd-prefix --hidden --follow --exclude ".git" --exclude ".local/state" | \
+      fzf --prompt="Navigate> " \
+          --preview 'eza --tree --level=1 --color=always {}'
+
+  # Se um diretório foi selecionado, usa 'z' (zoxide) para navegar.
+  if [[ -n "$dir" ]]; then
+      BUFFER="z ${dir}"
+      zle accept-line
+  fi
+  
+  zle reset-prompt
+}
+
+# Registra o widget no ZLE (Zsh Line Editor)
+zle -N fzf-cd-widget
+
+# Define o atalho. Sugestão: ALT+c (padrão comum para CD) ou CTRL+g
+bindkey '^g' fzf-cd-widget
 
 # If not running interactively, don't do anything
 case $- in
