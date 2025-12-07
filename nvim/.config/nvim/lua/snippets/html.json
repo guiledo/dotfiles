@@ -1,0 +1,20 @@
+{
+  "HTML5 Custom Boilerplate": {
+    "prefix": "html5",
+    "body": [
+      "<!DOCTYPE html>",
+      "<html lang=\"${1:en}\">",
+      "  <head>",
+      "    <meta charset=\"UTF-8\">",
+      "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+      "    <title>$2</title>",
+      "    <link href=\"${3:css/${TM_FILENAME_BASE:style}.css}\" rel=\"stylesheet\">",
+      "  </head>",
+      "  <body>",
+      "    $0",
+      "  </body>",
+      "</html>"
+    ],
+    "description": "HTML5 - Custom Boilerplate"
+  }
+}
