@@ -1,7 +1,13 @@
 {
   "extras": [
+    "lazyvim.plugins.extras.coding.luasnip",
+    "lazyvim.plugins.extras.lang.git",
     "lazyvim.plugins.extras.lang.markdown",
+    "lazyvim.plugins.extras.lang.svelte",
+    "lazyvim.plugins.extras.lang.terraform",
     "lazyvim.plugins.extras.lang.toml",
+    "lazyvim.plugins.extras.lang.typst",
+    "lazyvim.plugins.extras.lang.zig",
     "lazyvim.plugins.extras.util.dot"
   ],
   "install_version": 8,
