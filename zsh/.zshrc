@@ -166,7 +166,7 @@ alias tools='~/dotfiles/.ignore_stow/tools.txt'
 alias tmp='cd /tmp && mktemp tempXXXXXX'
 # Applications
 alias open='xdg-open'
-alias v='nvim '
+alias nv='nvim '
 alias zshrc='nvim ~/.zshrc'
 # Network
 alias myip="ip a | grep 'inet ' && curl ifconfig.me"
@@ -296,8 +296,6 @@ git-commit-simple() {
   git add -A
   git commit -m "[auto] Minor change in the codebase."
 }
-
-
 
 # --- 6. MISC ---
 # Oh-My-Zsh default and simple prompt in the absence of Starship
