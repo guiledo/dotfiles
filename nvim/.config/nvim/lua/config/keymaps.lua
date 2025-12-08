@@ -67,3 +67,5 @@ set("n", "<leader>ft", "<cmd>ToggleTerm<CR><cmd>startinsert<CR>", {
 set("t", "<Esc><Esc>", "<C-\\><C-n>:bdelete!<CR>",
   { desc = "Exit terminal mode and close window" })
 
+-- Oil keymap
+set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory", silent = true })
