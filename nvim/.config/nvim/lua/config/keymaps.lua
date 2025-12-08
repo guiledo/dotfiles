@@ -69,3 +69,4 @@ set("t", "<Esc><Esc>", "<C-\\><C-n>:bdelete!<CR>",
 
 -- Oil keymap
 set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory", silent = true })
+
