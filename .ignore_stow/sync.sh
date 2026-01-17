@@ -27,7 +27,7 @@ if [ $? -eq 0 ]; then
 else
     # Se o push falhar (ex: credenciais, rede, ou upstream desatualizado),
     # o script notifica o usuário, mas não interrompe.
-    echo "\uf467 WARNING: Git push failed at $(date). Check credentials or network."
+    echo " WARNING: Git push failed at $(date). Check credentials or network."
 fi
 
 
