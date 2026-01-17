@@ -23,11 +23,11 @@ git push origin main
 
 # Verifica o status do push e exibe a mensagem de sucesso/falha
 if [ $? -eq 0 ]; then
-    echo "✅ Sync successful at $(date)"
+    echo " Sync successful at $(date)"
 else
     # Se o push falhar (ex: credenciais, rede, ou upstream desatualizado),
     # o script notifica o usuário, mas não interrompe.
-    echo "❌ WARNING: Git push failed at $(date). Check credentials or network."
+    echo "\uf467 WARNING: Git push failed at $(date). Check credentials or network."
 fi
 
 
