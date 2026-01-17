@@ -145,7 +145,7 @@ HISTSIZE=1000
 # --- 3. ALIASES ---
 # File System
 alias chmodx='chmod +x'
-alias cat='batcat '
+alias cat='bat '
 alias count='ls -1 | wc -l'
 alias l='eza --icons --group-directories-first'
 alias la='eza -alF --icons --group-directories-first --git'
@@ -224,7 +224,7 @@ fzf-open-file-in-nvim-widget() {
   # Use fdfind and fzf to select a single file.
   file=$(fdfind --type f --strip-cwd-prefix --hidden --follow --exclude ".git" --exclude ".local/state" |
          fzf --prompt="Open File> " \
-             --preview 'batcat -n --color=always {}')
+             --preview 'bat -n --color=always {}')
 
   # If a file was selected, place `nvim [file]` in the buffer and execute it.
   if [[ -n "$file" ]]; then
@@ -301,3 +301,10 @@ git-commit-simple() {
 # Oh-My-Zsh default and simple prompt in the absence of Starship
 # prompt_context(){}
 
+
+# fnm
+FNM_PATH="/home/runner/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "`fnm env`"
+fi
