@@ -123,7 +123,6 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 export STARSHIP_CACHE=~/.starship/cache
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(starship init zsh)"
-eval "$(fnm env --use-on-cd --shell zsh)"
 eval "$(zoxide init zsh)"
 # Keep custom ALT+C behavior to change directory.
 export FZF_ALT_C_COMMAND='fdfind --type d --strip-cwd-prefix --hidden --follow --exclude .git --exclude .local/state'
