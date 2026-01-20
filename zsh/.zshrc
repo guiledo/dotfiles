@@ -161,6 +161,7 @@ alias devw='cd ~/dev/work && eza -alF --icons --group-directories-first --git'
 alias devp='cd ~/dev/personal && eza -alF --icons --group-directories-first --git'
 alias dot='cd ~/dotfiles/ && eza -alF --icons --group-directories-first --git'
 alias fzf='fzf -e'
+alias hypr='nvim ~/.config/hypr/hyprland.conf'
 alias tools='~/dotfiles/.ignore_stow/tools.txt'
 alias tmp='cd /tmp && mktemp tempXXXXXX'
 # Applications
