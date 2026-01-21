@@ -156,14 +156,14 @@ alias tree='eza --tree --icons'
 alias .='whoami && pwd'
 alias ..='cd ..'
 alias ...='cd ../..'
-alias dev='cd ~/dev'
-alias devw='cd ~/dev/work && eza -alF --icons --group-directories-first --git'
-alias devp='cd ~/dev/personal && eza -alF --icons --group-directories-first --git'
-alias dot='cd ~/dotfiles/'
+alias dev='cd $HOME/dev'
+alias devw='cd $HOME/dev/work && eza -alF --icons --group-directories-first --git'
+alias devp='cd $HOME/dev/personal && eza -alF --icons --group-directories-first --git'
+alias dot='cd $HOME/dotfiles/'
 alias fzf='fzf -e'
-alias hyprrc='nvim ~/.config/hypr/hyprland.conf'
-alias kittyrc='nvim ~/.config/kitty/kitty.conf'
-alias tools='nvim ~/dotfiles/.ignore_stow/tools.txt'
+alias hyprrc='nvim $HOME/.config/hypr/hyprland.conf'
+alias kittyrc='nvim $HOME/.config/kitty/kitty.conf'
+alias tools='nvim $HOME/dotfiles/.ignore_stow/tools.txt'
 # Applications
 alias open='xdg-open'
 alias nv='nvim'
@@ -172,10 +172,10 @@ alias zshrc='nvim ~/.zshrc'
 alias myip="ip a | grep 'inet ' && curl ifconfig.me"
 alias ports='ss -tuln'
 # Package Management
-alias install='sudo apt install'
-alias purge='sudo apt purge -y && sudo apt autoremove --purge -y'
-alias update='sudo apt update && sudo apt upgrade -y && sudo apt clean && sudo apt autoremove -y'
-alias update-all='$HOME/dotfiles/.ignore_stow/update-all.sh'
+alias install='sudo paru -S'
+alias purge='sudo paru -Rns'
+alias update='sudo paru -Syu && sudo paru -c'
+# alias update-all='$HOME/dotfiles/.ignore_stow/update-all.sh'
 # Process Management
 alias k='kill -9'
 alias kp='pkill -9'
@@ -214,10 +214,11 @@ alias gu='git pull'
 alias gunstage='git reset HEAD --'
 alias repo='git init && gh repo create --private --source=. --remote=origin && git add . && git commit -m "First upload" && git push -u --all && gh browse'
 # Stow/dotfiles
+alias archpkg='$HOME/dotfiles/.ignore_stow/packages/install_packages.sh'
+alias newpkg='$HOME/dotfiles/.ignore_stow/packages/backup_packages.sh'
 alias syncdot='$HOME/dotfiles/.ignore_stow/git_push_dotfiles.sh'
 
 # --- FUNCTIONS ---
-
 # Custom fzf widget and binding for CTRL-f to open a file in Neovim.
 fzf-open-file-in-nvim-widget() {
   local file
