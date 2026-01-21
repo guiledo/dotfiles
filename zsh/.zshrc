@@ -314,6 +314,30 @@ git-commit-simple() {
   git commit -m "[auto] Minor change in the codebase."
 }
 
+# Creates a temp directory and saves the path
+tmp() {
+    export CURRENT_TEMP_DIR=$(mktemp -d /tmp/tempXXXXXX)
+    cd "$CURRENT_TEMP_DIR" || return
+    echo "Workspace created: $CURRENT_TEMP_DIR"
+}
+
+# Deletes the stored path
+untmp() {
+    if [ -z "$CURRENT_TEMP_DIR" ]; then
+        echo "Error: No temporary workspace is currently active."
+        return 1
+    fi
+    
+    local target="$CURRENT_TEMP_DIR"
+    
+    # Move out of the directory before deleting it
+    cd - > /dev/null 2>&1 || cd /tmp
+    
+    rm -rf "$target"
+    unset CURRENT_TEMP_DIR
+    echo "Workspace deleted: $target"
+}
+
 # --- MISC ---
 # Oh-My-Zsh default and simple prompt in the absence of Starship
 # prompt_context(){}
