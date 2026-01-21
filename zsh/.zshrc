@@ -181,7 +181,7 @@ alias k='kill -9'
 alias kp='pkill -9'
 alias psg='ps aux | grep -i'
 # Search
-alias fd='fdfind -H -I'
+alias fd='fd -H -I'
 alias rg='rg --one-file-system'
 # Shell & System
 alias cls='clear'
@@ -213,7 +213,7 @@ alias gsw='git switch'
 alias gu='git pull'
 alias gunstage='git reset HEAD --'
 alias repo='git init && gh repo create --private --source=. --remote=origin && git add . && git commit -m "First upload" && git push -u --all && gh browse'
-# Stow
+# Stow/dotfiles
 alias syncdot='$HOME/dotfiles/.ignore_stow/sync.sh'
 
 # --- 4. FUNCTIONS ---
@@ -221,11 +221,18 @@ alias syncdot='$HOME/dotfiles/.ignore_stow/sync.sh'
 # Custom fzf widget and binding for CTRL-f to open a file in Neovim.
 fzf-open-file-in-nvim-widget() {
   local file
-  # Use fdfind and fzf to select a single file.
-  file=$(fdfind --type f --strip-cwd-prefix --hidden --follow --exclude ".git" --exclude ".local/state" |
-         fzf --prompt="Open File> " \
-             --preview 'bat -n --color=always {}')
-
+  # Use fd and fzf to select a single file.
+  file=$(fd --type f --strip-cwd-prefix --hidden --follow . \
+    --exclude ".git" \
+    --exclude ".local/state" \
+    --exclude "node_modules" \
+    --exclude ".cache" \
+    --exclude ".venv" \
+    --exclude "target" \
+    --exclude "build" \
+    --exclude "dist" | \
+      fzf --prompt="Open File> " \
+      --preview 'bat -n --color=always {}')
   # If a file was selected, place `nvim [file]` in the buffer and execute it.
   if [[ -n "$file" ]]; then
     BUFFER="nvim ${(q)file}"
@@ -241,27 +248,36 @@ bindkey '^f' fzf-open-file-in-nvim-widget
 # Custom fzf widget and binding for CTRL-g to open a folder.
 fzf-cd-widget() {
   local dir
-  # Busca apenas diretórios (--type d) a partir do local atual.
+  # Busca apenas diretórios (--type d) a partir do $HOME.
   # Flags de otimização:
   # --strip-cwd-prefix: remove o './' inicial para estética.
   # --hidden: inclui diretórios ocultos (configurações, etc).
   # --exclude .git: ignora a pasta versionada para reduzir ruído.
-  dir=$(fdfind --type d --strip-cwd-prefix --hidden --follow --exclude ".git" --exclude ".local/state" | \
+  dir=$(fd --type d --hidden --follow . "$HOME" \
+    --exclude ".git" \
+    --exclude ".local/state" \
+    --exclude "node_module" \
+    --exclude ".cache" \
+    --exclude ".npm" \
+    --exclude ".cargo" \
+    --exclude ".venv" \
+    --exclude "venv"
+    --exclude "target"
+    --exclude "build"
+    --exclude "dist" | \
       fzf --prompt="Navigate> " \
       --preview 'eza --tree --level=1 --color=always {}')
 
   # Se um diretório foi selecionado, usa 'z' (zoxide) para navegar.
   if [[ -n "$dir" ]]; then
-    BUFFER="z ${(q)dir}"
+    BUFFER="z ${(q)dir} && eza -a --icons --group-directories-first"
       zle accept-line
   fi
  
   zle reset-prompt
 }
-
 # Registra o widget no ZLE (Zsh Line Editor)
 zle -N fzf-cd-widget
-
 # Define o atalho. Sugestão: ALT+c (padrão comum para CD) ou CTRL+g
 bindkey '^g' fzf-cd-widget
 
@@ -300,7 +316,6 @@ git-commit-simple() {
 # --- 6. MISC ---
 # Oh-My-Zsh default and simple prompt in the absence of Starship
 # prompt_context(){}
-
 
 # fnm
 FNM_PATH="/home/runner/.local/share/fnm"
