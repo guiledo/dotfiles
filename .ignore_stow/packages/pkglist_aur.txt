@@ -1,0 +1,4 @@
+opencode
+paru
+paru-debug
+zapzap
