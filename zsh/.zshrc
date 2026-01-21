@@ -144,13 +144,13 @@ HISTSIZE=1000
 # --- ALIASES ---
 # File System
 alias chmodx='chmod +x'
-alias cat='bat '
+alias cat='bat'
 alias count='ls -1 | wc -l'
-alias l='eza --icons --group-directories-first '
-alias la='eza -alF --icons --group-directories-first --git '
-alias ll='eza -a --icons --group-directories-first '
+alias l='eza --icons --group-directories-first'
+alias la='eza -alF --icons --group-directories-first --git'
+alias ll='eza -a --icons --group-directories-first'
 alias mk='mkdir -p'
-alias mkcd='func(){ mkdir -p "$1" && cd "$1"; }; func'
+alias mkcd='func(){ mkdir -p "$1" && cd "$1" && eza -a --icons --group-directories-first; }; func'
 alias tree='eza --tree --icons'
 # Navigation
 alias .='whoami && pwd'
@@ -159,15 +159,14 @@ alias ...='cd ../..'
 alias dev='cd ~/dev'
 alias devw='cd ~/dev/work && eza -alF --icons --group-directories-first --git'
 alias devp='cd ~/dev/personal && eza -alF --icons --group-directories-first --git'
-alias dot='cd ~/dotfiles/ && eza -alF --icons --group-directories-first --git'
+alias dot='cd ~/dotfiles/'
 alias fzf='fzf -e'
 alias hyprrc='nvim ~/.config/hypr/hyprland.conf'
 alias kittyrc='nvim ~/.config/kitty/kitty.conf'
 alias tools='nvim ~/dotfiles/.ignore_stow/tools.txt'
-alias z='z '
 # Applications
 alias open='xdg-open'
-alias nv='nvim '
+alias nv='nvim'
 alias zshrc='nvim ~/.zshrc'
 # Network
 alias myip="ip a | grep 'inet ' && curl ifconfig.me"
@@ -336,6 +335,11 @@ untmp() {
     rm -rf "$target"
     unset CURRENT_TEMP_DIR
     echo "Workspace deleted: $target"
+}
+
+# Define the hook function - every time change directory, run eza (better ls)
+chpwd() {
+  eza -a --icons --group-directories-first --git
 }
 
 # --- MISC ---
