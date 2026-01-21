@@ -116,7 +116,7 @@ source $ZSH/oh-my-zsh.sh
 # USER CHANGES
 # --------------------------------------------------------------------------------
 
-# --- 1. SHELL INTEGRATION, EXPORTS & PATH ---
+# --- SHELL INTEGRATION, EXPORTS & PATH ---
 export PATH="$HOME/bin:$HOME/.local/bin:usr/local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
@@ -131,7 +131,7 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200' --bind 'ctrl-/:change-
 # Disable the default CTRL-T binding from the fzf script so we can create our own.
 FZF_CTRL_T_COMMAND='' source <(fzf --zsh)
 
-# --- 2. ZSH OPTIONS --- 
+# --- ZSH OPTIONS --- 
 setopt extendedglob
 setopt appendhistory
 setopt sharehistory
@@ -141,14 +141,14 @@ setopt histignorespace
 SAVEHIST=2000
 HISTSIZE=1000
 
-# --- 3. ALIASES ---
+# --- ALIASES ---
 # File System
 alias chmodx='chmod +x'
 alias cat='bat '
 alias count='ls -1 | wc -l'
-alias l='eza --icons --group-directories-first'
-alias la='eza -alF --icons --group-directories-first --git'
-alias ll='eza -a --icons --group-directories-first'
+alias l='eza --icons --group-directories-first '
+alias la='eza -alF --icons --group-directories-first --git '
+alias ll='eza -a --icons --group-directories-first '
 alias mk='mkdir -p'
 alias mkcd='func(){ mkdir -p "$1" && cd "$1"; }; func'
 alias tree='eza --tree --icons'
@@ -161,9 +161,10 @@ alias devw='cd ~/dev/work && eza -alF --icons --group-directories-first --git'
 alias devp='cd ~/dev/personal && eza -alF --icons --group-directories-first --git'
 alias dot='cd ~/dotfiles/ && eza -alF --icons --group-directories-first --git'
 alias fzf='fzf -e'
-alias hypr=' ~/.config/hypr/hyprland.conf'
+alias hypr='~/.config/hypr/hyprland.conf'
 alias tools='~/dotfiles/.ignore_stow/tools.txt'
 alias tmp='cd /tmp && mktemp tempXXXXXX'
+alias zoxide='z '
 # Applications
 alias open='xdg-open'
 alias nv='nvim '
@@ -181,8 +182,8 @@ alias k='kill -9'
 alias kp='pkill -9'
 alias psg='ps aux | grep -i'
 # Search
-alias fd='fd -H -I'
-alias rg='rg --one-file-system'
+alias fd='fd -H -I '
+alias rg='rg --one-file-system '
 # Shell & System
 alias cls='clear'
 alias hist='history | less'
@@ -216,7 +217,7 @@ alias repo='git init && gh repo create --private --source=. --remote=origin && g
 # Stow/dotfiles
 alias syncdot='$HOME/dotfiles/.ignore_stow/sync.sh'
 
-# --- 4. FUNCTIONS ---
+# --- FUNCTIONS ---
 
 # Custom fzf widget and binding for CTRL-f to open a file in Neovim.
 fzf-open-file-in-nvim-widget() {
@@ -313,7 +314,7 @@ git-commit-simple() {
   git commit -m "[auto] Minor change in the codebase."
 }
 
-# --- 6. MISC ---
+# --- MISC ---
 # Oh-My-Zsh default and simple prompt in the absence of Starship
 # prompt_context(){}
 
