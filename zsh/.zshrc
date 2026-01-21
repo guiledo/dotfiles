@@ -164,7 +164,7 @@ alias fzf='fzf -e'
 alias hyprrc='nvim ~/.config/hypr/hyprland.conf'
 alias kittyrc='nvim ~/.config/kitty/kitty.conf'
 alias tools='nvim ~/dotfiles/.ignore_stow/tools.txt'
-alias z='zoxide '
+alias z='z '
 # Applications
 alias open='xdg-open'
 alias nv='nvim '
