@@ -214,7 +214,7 @@ alias gs='git status -s'
 alias gsw='git switch'
 alias gu='git pull'
 alias gunstage='git reset HEAD --'
-alias repo='git init && gh repo create --private --source=. --remote=origin && git add . && git commit -m "First upload" && git push -u --all && gh browse'
+alias repo='git init -b main && gh repo create --private --source=. --remote=origin && git add . && git commit -m "First upload" && git push -u --all && gh browse'
 # Stow/dotfiles
 alias archpkg='$HOME/dotfiles/.ignore_stow/packages/install_packages.sh'
 alias newpkg='$HOME/dotfiles/.ignore_stow/packages/backup_packages.sh'
