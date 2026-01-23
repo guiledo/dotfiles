@@ -190,8 +190,7 @@ alias cls='clear'
 alias hist='history | less'
 alias ff='fastfetch'
 alias ncdu='ncdu -x'
-alias reload='exec zsh'
-alias sourcez='source ~/.zshrc'
+alias reload='source ~/.zshrc'
 alias sudo='sudo '
 # Git
 alias ga='git add .'
@@ -259,14 +258,14 @@ fzf-cd-widget() {
   dir=$(fd --type d --hidden --follow . "$HOME" \
     --exclude ".git" \
     --exclude ".local/state" \
-    --exclude "node_module" \
+    --exclude "node_modules" \
     --exclude ".cache" \
     --exclude ".npm" \
     --exclude ".cargo" \
     --exclude ".venv" \
-    --exclude "venv"
-    --exclude "target"
-    --exclude "build"
+    --exclude "venv" \
+    --exclude "target" \
+    --exclude "build" \
     --exclude "dist" | \
       fzf --prompt="Navigate> " \
       --preview 'eza --tree --level=1 --color=always {}')
