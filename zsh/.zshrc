@@ -177,7 +177,7 @@ alias ports='ss -tuln'
 alias install='sudo paru -S'
 alias purge='sudo paru -Rns'
 alias update='sudo paru -Syu && sudo paru -c'
-# alias update-all='$HOME/dotfiles/.ignore_stow/update-all.sh'
+# alias update-all='$HOME/dotfiles/.ignore_stow/update-all.sh' (script out of date and made for PopOS)
 # Process Management
 alias k='kill -9'
 alias kp='pkill -9'
@@ -190,8 +190,6 @@ alias cls='clear'
 alias hist='history | less'
 alias ff='fastfetch'
 alias ncdu='ncdu -x'
-alias reload='source ~/.zshrc'
-alias sudo='sudo '
 # Git
 alias ga='git add .'
 alias gamend='git commit --amend --no-edit'
@@ -342,6 +340,24 @@ untmp() {
 # Define the hook function - every time change directory, run eza (better ls)
 chpwd() {
   eza -a --icons --group-directories-first --git
+}
+
+# Source shell
+reload() {
+  if [ -n "$ZSH_VERSION" ]; then
+    source "${ZDOTDIR:-$HOME}/.zshrc"
+
+  elif [ -n "$BASH_VERSION" ]; then
+    source "$HOME/.bashrc"
+
+  elif [ -n "$FISH_VERSION" ]; then
+    commandline -f repaint
+    source ~/.config/fish/config.fish
+
+  else
+    echo "Unsupported shell"
+    return 1
+  fi
 }
 
 # --- MISC ---
