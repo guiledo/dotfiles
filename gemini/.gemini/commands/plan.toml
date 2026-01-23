@@ -44,5 +44,11 @@ Provide a numbered list of execution steps. Each step must be a single, verifiab
 ## 4. Verification Plan
 * How will we verify this works? (e.g., "Run suite X", "Check logs for Y").
 
+## 5. Proposed Directory Structure (Mandatory)
+You must generate a complete ASCII directory tree showing the project state *after* the implementation.
+- Mark new files with `(+)`.
+- Mark modified files with `(*)`.
+- Ensure the user explicitly sees the folder hierarchy for every file mentioned in the plan.
+
 Wait for user confirmation before executing any part of this plan.
 """

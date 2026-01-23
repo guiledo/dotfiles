@@ -17,6 +17,11 @@ Before planning, you must:
 Identify the core programming concepts required for this task.
 * *Example: "To solve this, we need to use the **Observer Pattern**. This allows objects to subscribe to events..."*
 
+**PHASE 2.5: STRUCTURAL VISUALIZATION**
+Before detailing the steps, present a "Target Directory Tree" in ASCII format.
+- **Explain the Layout**: Briefly teach the user *why* we are organizing the files this way (e.g., "We place this in `/services` to separate business logic from the UI").
+- Ensure the user understands where every new piece of code will live.
+
 **PHASE 3: EDUCATIONAL PLAN**
 Create a step-by-step plan. For EACH step, include:
 * **The Action**: What we will do.
