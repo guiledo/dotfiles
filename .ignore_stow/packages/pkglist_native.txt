@@ -1,8 +1,11 @@
 base
 base-devel
 bat
+btop
 btrfs-progs
 cliphist
+docker
+docker-compose
 dolphin
 dosfstools
 dunst
@@ -17,6 +20,7 @@ git
 github-cli
 grim
 grub
+htop
 hypridle
 hyprland
 hyprpaper
@@ -38,6 +42,7 @@ networkmanager
 noto-fonts-emoji
 nvidia-open-dkms
 nvidia-utils
+nvtop
 openssh
 os-prober
 pamixer
@@ -50,6 +55,7 @@ snap-pac
 snapper
 sof-firmware
 starship
+steam
 stow
 sudo
 swappy
