@@ -168,7 +168,7 @@ alias tmuxrc='nvim $HOME/.config/tmux/tmux.conf'
 alias tools='nvim $HOME/dotfiles/.ignore_stow/tools.txt'
 # Applications
 alias open='xdg-open'
-alias nv='nvim'
+alias nv='nvim '
 alias zshrc='nvim ~/.zshrc'
 # Network
 alias myip="ip a | grep 'inet ' && curl ifconfig.me"
@@ -363,6 +363,9 @@ reload() {
 # --- MISC ---
 # Oh-My-Zsh default and simple prompt in the absence of Starship
 # prompt_context(){}
+
+# Reload Kanshi config after suspend
+pkill -HUP kanshi
 
 # fnm
 FNM_PATH="/home/runner/.local/share/fnm"
