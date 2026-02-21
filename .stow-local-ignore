@@ -1,15 +1,17 @@
-# Ignorar git
-\.git
-\.gitignore
+# Ignorar git de forma exata
+^\.git$
+^\.gitignore$
 
-# Ignorar ficheiros de documentação e licença
-README\.md
-LICENSE
-COPYING
+# Ignorar o próprio arquivo de ignore (evita link em ~/)
+^\.stow-local-ignore$
+ 
+# Ignorar pasta de rascunhos de forma exata
+^\.ignore_stow$
 
-# Ignorar ficheiros do sistema ou temporários
-\.DS_Store
-\.swp
+# Ficheiros de documentação e temporários
+^README\.md$
+^LICENSE$
+^COPYING$
+\.swp$
+\.DS_Store$
 
-# Ignorar pasta específica
-ignore_stow
