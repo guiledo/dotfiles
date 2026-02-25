@@ -1,3 +1,4 @@
+dell-g15-controller
 paru
 paru-debug
 zapzap

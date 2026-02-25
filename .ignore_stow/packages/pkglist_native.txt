@@ -1,3 +1,4 @@
+acpi_call-dkms
 archlinux-xdg-menu
 base
 base-devel
@@ -40,6 +41,7 @@ linux
 linux-firmware
 linux-headers
 man-db
+mangohud
 mpv
 mtools
 nano
@@ -47,6 +49,7 @@ neovim
 networkmanager
 noto-fonts-emoji
 nvidia-open-dkms
+nvidia-prime
 nvidia-utils
 nvtop
 obs-studio
@@ -74,6 +77,7 @@ unzip
 v4l2loopback-dkms
 vim
 vivaldi
+vivaldi-ffmpeg-codecs
 vlc
 vlc-plugin-cddb
 vlc-plugin-ffmpeg
