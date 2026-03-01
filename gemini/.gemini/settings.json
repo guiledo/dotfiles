@@ -5,9 +5,28 @@
     }
   },
   "general": {
-    "previewFeatures": true
+    "previewFeatures": true,
+    "sessionRetention": {
+      "warningAcknowledged": true,
+      "enabled": true,
+      "maxAge": "30d"
+    }
   },
   "model": {
-    "name": "gemini-3-pro-preview"
+    "name": "gemini-3.1-pro-preview"
+  },
+  "ui": {
+    "footer": {
+      "hideContextPercentage": false
+    },
+    "showUserIdentity": false
+  },
+  "context": {
+    "fileFiltering": {
+      "respectGitIgnore": false
+    }
+  },
+  "experimental": {
+    "plan": true
   }
 }

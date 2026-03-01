@@ -89,5 +89,6 @@ xdg-desktop-portal-hyprland
 xdg-desktop-portal-kde
 xorg-xrandr
 zoxide
+zram-generator
 zsh
 zsh-completions
