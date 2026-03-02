@@ -3,14 +3,20 @@
     "position": "top",
     "height": 30,
     "mode": "hide",
-    "start hidden": "true",
+    "on-sigusr1": "hide",
+    "on-sigusr2": "show",
+    "start_hidden": false,
     "exclusive": false,
     "passthrough": false,
     "gtk-layer-shell": true,
-    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-left": ["custom/autohide", "sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
     "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "clock", "tray"],
 
+    "custom/autohide": {
+    "exec": "~/dotfiles/waybar/.config/waybar/Modules/WaybarAutoHide",
+    "interval": "once"
+    },
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
