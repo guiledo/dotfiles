@@ -1,0 +1,13 @@
+# Profile 1: Docked (Clamshell Mode - Laptop Screen OFF)
+# Triggers when BOTH HDMI-A-1 and eDP-1 are connected.
+profile {
+    output HDMI-A-1 enable mode 1920x1080@240Hz position 0,0 scale 1
+    output eDP-1 disable
+}
+
+# Profile 2: Mobile (Laptop Screen ON)
+# Triggers when ONLY eDP-1 is connected (or as a fallback).
+profile {
+    output eDP-1 enable mode 1920x1080@165Hz scale 1.5
+}
+
