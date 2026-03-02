@@ -2,6 +2,8 @@
     "layer": "top",
     "position": "top",
     "height": 30,
+    "mode": "hide",
+    "start hidden": "true",
     "exclusive": false,
     "passthrough": false,
     "gtk-layer-shell": true,
