@@ -35,7 +35,7 @@ list_updates() {
     ICON=""
     MAX=20
     LINE_MAX=40
-    BLACKLIST_FILE="$HOME/.config/waybar/Modules/BlacklistUpdates"
+    BLACKLIST_FILE="$HOME/.config/waybar/modules/BlacklistUpdates"
 
     while pid=$(pgrep -x checkupdates); do
         wait "$pid" 2>/dev/null || true
