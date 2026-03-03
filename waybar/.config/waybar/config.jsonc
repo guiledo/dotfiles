@@ -14,7 +14,7 @@
     "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "clock", "tray"],
 
     "custom/autohide": {
-    "exec": "~/dotfiles/waybar/.config/waybar/Modules/WaybarAutoHide",
+    "exec": "~/dotfiles/waybar/.config/waybar/modules/WaybarAutoHide",
     "interval": "once"
     },
     "hyprland/workspaces": {

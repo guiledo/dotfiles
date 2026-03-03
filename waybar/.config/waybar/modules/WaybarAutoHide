@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-STATE_FILE="$HOME/.config/waybar/Modules/.Locked"
-AUTO_FILE="$HOME/.config/waybar/Modules/.Visible"
+STATE_FILE="$HOME/.config/waybar/modules/.Locked"
+AUTO_FILE="$HOME/.config/waybar/modules/.Visible"
 CONFIG_FILE="$HOME/.config/waybar/config.jsonc"
 POLL_DELAY=0.10
 
