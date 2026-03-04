@@ -22,3 +22,15 @@ Full
 Full
 [2026-03-04 18:56:14.013] [info] Bar configured (width: 1920, height: 30) for output: HDMI-A-1
 [2026-03-04 18:56:14.013] [error] Item '': No icon name or pixmap given.
+
+(waybar:404814): LIBDBUSMENU-GLIB-WARNING **: 18:59:17.914: Unable to replace properties on 0: Error getting properties for ID
+
+(waybar:404814): LIBDBUSMENU-GLIB-WARNING **: 18:59:17.949: Unable to replace properties on 0: Error getting properties for ID
+
+(waybar:404814): LIBDBUSMENU-GLIB-WARNING **: 19:00:08.701: Getting layout failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: Object does not exist at path “/”
+
+(waybar:404814): LIBDBUSMENU-GLIB-WARNING **: 19:01:01.687: Getting layout failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: Object does not exist at path “/”
+
+(waybar:404814): LIBDBUSMENU-GLIB-WARNING **: 19:10:19.378: Unable to replace properties on 0: Error getting properties for ID
+
+(waybar:404814): LIBDBUSMENU-GLIB-WARNING **: 19:12:53.551: Unable to replace properties on 0: Error getting properties for ID

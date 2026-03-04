@@ -20,10 +20,11 @@ get_bar_position() {
 get_tiled_on_active_ws() {
     local ws=$(hyprctl activeworkspace | awk '/workspace ID/ {print $3}')
     hyprctl clients | awk -v ws="$ws" '
-        /^Window /{cur_ws="";floating=""}
+        /^Window /{cur_ws="";floating="";hidden=0}
         /^\s*workspace:/{cur_ws=$2}
         /^\s*floating:/{floating=$2}
-        cur_ws==ws && floating==0 {count++;cur_ws=""}
+        /^\s*hidden:/{hidden=$2}
+        cur_ws==ws && floating==0 && hidden==0 {count++;cur_ws=""}
         END{print count+0}'
 }
 
