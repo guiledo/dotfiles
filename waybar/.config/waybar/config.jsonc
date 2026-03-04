@@ -10,7 +10,7 @@
     "passthrough": false,
     "gtk-layer-shell": true,
     "modules-left": ["custom/autohide", "hyprland/workspaces", "hyprland/submap"],
-    "modules-center": ["hyprland/window"],
+    //"modules-center": ["hyprland/window"],
     "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "clock", "tray"],
 
     "custom/autohide": {
@@ -23,8 +23,9 @@
         "format": "{name}: {icon}",
         "format-icons": {
             "1": "󰆍",
-            "2": "󰊯",
+            "2": "󰖟",
             "3": "󰭹",
+            "4": "󰗧",
             "urgent": "󰀦",
             "focused": "󰪥",
             "default": "󰄯"
