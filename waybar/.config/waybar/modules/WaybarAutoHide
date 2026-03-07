@@ -46,10 +46,12 @@ bar_visible=false
 while true; do
 
     CURSOR=$(get_cursor_pos)
+    [ -z "$CURSOR" ] && sleep 1 && continue
     X=$(echo "$CURSOR" | cut -d',' -f1)
     Y=$(echo "$CURSOR" | cut -d',' -f2)
 
     RES=$(get_resolution)
+    [ -z "$RES" ] && sleep 1 && continue
     WIDTH=${RES%x*}
     HEIGHT=${RES#*x}
 
@@ -101,17 +103,19 @@ while true; do
             ;;
     esac
 
-    if (( special || tiled==0 || tiled>=2 || (tiled==1 && SHOW_CONDITION) )); then
-        ! $bar_visible
-        pkill -SIGUSR2 waybar
-        bar_visible=true
-        touch "$AUTO_FILE"
+    if (( special || tiled==0 || (tiled>=1 && SHOW_CONDITION) )); then
+        if ! $bar_visible; then
+            pkill -SIGUSR2 waybar
+            bar_visible=true
+            touch "$AUTO_FILE"
+        fi
 
-    elif (( tiled==1 && HIDE_CONDITION )); then
-        $bar_visible
-        pkill -SIGUSR1 waybar
-        bar_visible=false
-        rm -f "$AUTO_FILE"
+    elif (( tiled>=1 && HIDE_CONDITION )); then
+        if $bar_visible; then
+            pkill -SIGUSR1 waybar
+            bar_visible=false
+            rm -f "$AUTO_FILE"
+        fi
     fi
 
     sleep "$POLL_DELAY"
@@ -125,7 +129,7 @@ if [ -f "$STATE_FILE" ]; then
     rm "$STATE_FILE"
     tiled=$(get_tiled_on_active_ws)
 
-    if focused_special_ws || [ "$tiled" -eq 0 ] || [ "$tiled" -ge 2 ]
+    if focused_special_ws || [ "$tiled" -eq 0 ]
     then
         pkill -SIGUSR2 waybar
     else
