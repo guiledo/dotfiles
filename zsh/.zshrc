@@ -128,6 +128,8 @@ eval "$(zoxide init zsh)"
 # Keep custom ALT+C behavior to change directory
 export FZF_ALT_C_COMMAND='fdfind --type d --strip-cwd-prefix --hidden --follow --exclude .git --exclude .local/state'
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200' --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+export EDITOR=nvim
+export VISUAL=nvim
 
 # Disable the default CTRL-T binding from the fzf script
 FZF_CTRL_T_COMMAND='' source <(fzf --zsh)
