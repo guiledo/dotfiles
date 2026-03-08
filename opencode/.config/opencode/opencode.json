@@ -1,0 +1,12 @@
+{
+  "agent": {
+    "build": {
+      "mode": "primary",
+      "tools": { "write": true, "edit": true, "bash": true }
+    },
+    "plan": {
+      "mode": "primary",
+      "tools": { "write": false, "edit": false, "bash": "ask" }
+    }
+  }
+}
