@@ -1,6 +1,11 @@
 return {
   {
+    "catppuccin/nvim",
+    name = "catppuccin",
+  },
+  {
     "folke/tokyonight.nvim",
+    name = "tokyonight",
     opts = {
       --transparent = true,
       styles = {
@@ -9,4 +14,10 @@ return {
       },
     },
   },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "catppuccin",
+    },
+  }
 }
