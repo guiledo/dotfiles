@@ -116,7 +116,7 @@ source $ZSH/oh-my-zsh.sh
 # MODULAR CONFIGURATION
 # --------------------------------------------------------------------------------
 
-export HISTFILE="$ZDOTDIR/.zsh_history"
+export HISTFILE="$ZDOTDIR/zsh_history"
 
 # Load configuration modules in order
 for file in $ZDOTDIR/modules/*.zsh; do
