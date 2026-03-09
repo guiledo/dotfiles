@@ -11,9 +11,8 @@
     "build": {
       "mode": "primary",
       "tools": {
-        "write": true,
-        "edit": true,
-        "bash": true
+        // "write": true,
+        // "edit": true,
       }
     },
     "plan": {
@@ -21,11 +20,11 @@
       "tools": {
         "write": false,
         "edit": false,
-        "bash": "ask"
       }
     }
   },
   "permission": {
+    "write": "ask",
     "edit": "ask",
     "bash": {
       "git *": "allow",
