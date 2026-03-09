@@ -4,9 +4,9 @@
   //"small_model": "anthropic/claude-haiku-4-5",
   "autoupdate": false,
   "default_agent": "plan",
-  "instructions": [
-    "~/.config/opencode/rules/performance.md"
-  ],
+  // "instructions": [
+    // "~/.config/opencode/rules/performance.md"
+  // ],
   "agent": {
     "build": {
       "mode": "primary",
