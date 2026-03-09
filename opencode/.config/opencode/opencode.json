@@ -11,8 +11,8 @@
     "build": {
       "mode": "primary",
       "tools": {
-        // "write": true,
-        // "edit": true,
+        "write": true,
+        "edit": true,
       }
     },
     "plan": {
@@ -30,7 +30,6 @@
       "git *": "allow",
       "ls": "allow",
       "cat *": "allow",
-      "pacman *":"ask",
       "paru *": "ask",
       "rm *": "ask",
       "*": "ask"
