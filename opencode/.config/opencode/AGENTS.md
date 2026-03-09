@@ -92,7 +92,7 @@ For Domain-Driven Design projects, load the `domain-driven-design` skill.
 
 **Project onboarding:** Run `/setup` in any new project to detect its tech stack and generate project-level AGENTS.md, hooks, commands, and PR review agent in one shot. This replaces the need for `/init`.
 
-**Project-level hooks:** Projects should add a PostToolUse hook in `.claude/settings.json` to run typecheck after Write/Edit on .ts/.tsx files. Use `/setup` to generate this automatically, or see the global `settings.json` prettier/eslint hook as a template.
+**Project-level hooks:** Projects should add a PostToolUse hook in `.opencode/opencode.json` to run typecheck after Write/Edit on .ts/.tsx files. Use `/setup` to generate this automatically, or see the global `settings.json` prettier/eslint hook as a template.
 
 ## Output Guardrails
 
