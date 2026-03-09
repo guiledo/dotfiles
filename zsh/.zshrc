@@ -366,8 +366,11 @@ reload() {
 # Oh-My-Zsh default and simple prompt in the absence of Starship
 # prompt_context(){}
 
-# Reload Kanshi config after suspend
+# Reload Kanshi config 
 pkill -HUP kanshi
+
+# Reload Waybar and Waybar AutoHide custom script
+
 
 # fnm
 FNM_PATH="/home/runner/.local/share/fnm"
