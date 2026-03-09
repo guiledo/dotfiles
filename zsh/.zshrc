@@ -370,7 +370,7 @@ reload() {
 pkill -HUP kanshi
 
 # Reload Waybar and Waybar AutoHide custom script
-
+pkill -9 -x waybar ; nohup waybar >/dev/null 2>&1 &
 
 # fnm
 FNM_PATH="/home/runner/.local/share/fnm"
