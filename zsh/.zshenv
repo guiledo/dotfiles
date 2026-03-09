@@ -1,4 +1,4 @@
-export ZDOTDIR="$HOME/zsh"
+export ZDOTDIR="$HOME"
 
 # Path configuration
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$HOME/.cargo/bin:$PATH"
