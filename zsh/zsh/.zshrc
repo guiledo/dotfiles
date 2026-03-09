@@ -19,7 +19,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # --------------------------------------------------------------------------------
-# CONSOLIDATED CONFIGURATION
+# CUSTOM
 # --------------------------------------------------------------------------------
 
 export HISTFILE="$ZDOTDIR/zsh_history"
