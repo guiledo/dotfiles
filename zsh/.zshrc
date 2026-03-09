@@ -224,14 +224,18 @@ chpwd() {
 }
 
 reload() {
-  pkill -HUP kanshi
-  pkill -9 -x waybar ; nohup waybar >/dev/null 2>&1 &
+  pkill -HUP kanshi >/dev/null 2>&1
+  pkill -9 -x waybar >/dev/null 2>&1
 
   if [ -n "$ZSH_VERSION" ]; then
+    waybar >/dev/null 2>&1 &!
     source "${ZDOTDIR:-$HOME}/.zshrc"
   elif [ -n "$BASH_VERSION" ]; then
+    nohup waybar >/dev/null 2>&1 &
     source "$HOME/.bashrc"
   elif [ -n "$FISH_VERSION" ]; then
+    waybar >/dev/null 2>&1 &
+    disown
     commandline -f repaint
     source ~/.config/fish/config.fish
   else
