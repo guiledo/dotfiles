@@ -22,7 +22,7 @@ source $ZSH/oh-my-zsh.sh
 # CUSTOM
 # --------------------------------------------------------------------------------
 
-export HISTFILE="$ZDOTDIR/zsh_history"
+export HISTFILE="$ZDOTDIR/.zsh_history"
 
 # Tool Initializations
 if command -v starship >/dev/null 2>&1; then eval "$(starship init zsh)"; fi
