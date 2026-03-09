@@ -31,6 +31,8 @@
       "git *": "allow",
       "ls": "allow",
       "cat *": "allow",
+      "man *": "allow",
+      "grep *": "allow",
       "paru *": "ask",
       "rm *": "ask",
       "*": "ask"
