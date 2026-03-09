@@ -74,7 +74,7 @@ alias tools='nvim $HOME/dotfiles/.ignore_stow/tools.txt'
 # Applications Aliases
 alias open='xdg-open'
 alias nv='nvim '
-alias zshrc='nvim $HOME/zsh/.zshrc'
+alias zshrc='nvim $HOME/.zshrc'
 
 # Network Aliases
 alias myip="ip a | grep 'inet ' && curl ifconfig.me"
