@@ -134,7 +134,6 @@ EOF'
 : 1769000664:0;cd /temp
 : 1769016238:0;nvim kittycfg
 : 1769016254:0;nv ~/.config/kitty/kitty.conf
-: 1769016864:0;reloa
 : 1769017245:0;cd /tmp/tempDMVjqp
 : 1769017320:0;rleoadd
 : 1769018132:0;sudo pacman -S tmux
@@ -407,115 +406,43 @@ git push -u origin main
 : 1769385900:0;fd zapzap
 : 1769385908:0;fd obsidian
 : 1769385944:0;home/runner/.local/bin/Obsidian-1.11.5.AppImage
-: 1769385967:0;hyprrc
-: 1769386038:0;cls
-: 1769386054:0;reload
-: 1769386071:0;z
-: 1769386073:0;cls
-: 1769386075:0;zshrc
-: 1769386140:0;cls
-: 1769386417:0;systemctl suspend
-: 1769443212:0;reload
 : 1769444004:0;kanshictl
 : 1769444019:0;where kanshi
-: 1769444031:0;fd kanshi
-: 1769444047:0;z .config kanshi
-: 1769444052:0;nv config
 : 1769444093:0;kanshictl reload
 : 1769444104:0;souce config
 : 1769444107:0;source config
-: 1769444118:0;nv config
 : 1769444172:0;systemctl monitors
-: 1769444261:0;reboot
-: 1769822614:0;cls
-: 1769822626:0;reload
-: 1769822633:0;kanshi
 : 1769822653:0;kanshirc
-: 1769822662:0;zshrc
 : 1769822671:0;fd kanshi
 : 1769822676:0;z .config kanshi
 : 1769822687:0;nv config
-: 1769822775:0;reload
-: 1769822778:0;kanshi
-: 1769822800:0;hyprrc
-: 1769822886:0;reload
-: 1769822887:0;cls
-: 1769822890:0;z
-: 1769822892:0;cls
-: 1769822900:0;tmux
 : 1769823097:0;mount | grep efivars
 : 1769823106:0;ls /sys/firmware/efi/efivars/dump-*
 : 1769823120:0;sudo rm /sys/firmware/efi/efivars/dump-*
-: 1769823163:0;nv /etc/default/grub
-: 1769823194:0;sudo nv /etc/default/grub
-: 1769823202:0;sudo nvim /etc/default/grub
-: 1769823233:0;sudo grub-mkconfig -o /boot/grub/grub.cfg
 : 1769823243:0;sudo efibootmgr
 : 1769823345:0;sudo efibootmgr -b 0005 -B
 : 1769823533:0;echo "blacklist alienware_wmi" | sudo tee /etc/modprobe.d/block-alienware.conf
-: 1769823545:0;sudo mkinitcpio -P
-: 1769823600:0;reboot
-: 1769991420:0;hyprrc
-: 1769991501:0;cls
-: 1769991812:0;devp
-: 1769991820:0;gh repo clone guiledo/portfolio-website
-: 1769991825:0;ll
-: 1769991886:0;z portfolio-website
 : 1769991889:0;git rebase -i --root
 : 1769992302:0;git push origin main --force-with-lease
-: 1769992309:0;gs
-: 1769992319:0;git push
 : 1769992337:0;git push origin HEAD:main
-: 1769992355:0;gs
-: 1769992404:0;..
 : 1769992414:0;rm -rf portfolio-website
-: 1769992421:0;ls
 : 1769992713:0;gh repo clone guiledo/portfolio-website
-: 1769992718:0;ll
-: 1769992728:0;z portfolio-website
-: 1769992789:0;gemini
-: 1769997498:0;z
-: 1769997499:0;cls
-: 1769997500:0;tmux
-: 1769997510:0;devp
-: 1769997530:0;z portfolio-website
 : 1769997548:0;nv .gitignore
-: 1769997584:0;git push
-: 1769997592:0;ga
 : 1769997620:0;gc Changing gitignore
-: 1769997622:0;gp
-: 1769997644:0;gemini
 : 1769997667:0;z dev/personal/portfolio-website
-: 1769997675:0;cls
 : 1769997686:0;grep Tools
 : 1769997715:0;rg Git Bash
 : 1769997719:0;rg "Git Bash"
 : 1769997761:0;nv src/data/skills.ts
-: 1769997948:0;tree
 : 1769997987:0;nvim src/assets/logo.png
 : 1769998000:0;./src/assets/logo.png
 : 1769998006:0;open ./src/assets/logo.png
-: 1769998064:0;z ./src/assets
-: 1769998643:0;ls
-: 1769999118:0;..
 : 1769999129:0;rg 'Linux'
 : 1769999518:0;z ./src/assets
 : 1770000297:0;dl
 : 1770000300:0;z dl
-: 1770000304:0;z $DL
 : 1770000311:0;unzip shadcn-ui-vector-logo-seeklogo.zip
-: 1770000729:0;ga
 : 1770000743:0;gc Better techonologies description
-: 1770000755:0;gp
-: 1770001511:0;systemctl suspend
-: 1770039866:0;kanshi
-: 1770039907:0;reload
-: 1770041473:0;reboot
-: 1770053117:0;z /home/runner/dev/personal/portfolio-website/ && eza -a --icons --group-directories-first
-: 1770053128:0;gemini
-: 1770053196:0;cls
-: 1770053198:0;tmux
-: 1770053208:0;gemini
 : 1770053218:0;gco
 : 1770053226:0;git branch
 : 1770053321:0;git switch model-exp/proj
@@ -524,94 +451,33 @@ git push -u origin main
 : 1770053364:0;npm run vite
 : 1770053366:0;vite
 : 1770053371:0;man vite
-: 1770053452:0;npm run dev
-: 1770053540:0;cls
 : 1770053546:0;git switch main
 : 1770053624:0;git branch -d model-exp/proj
 : 1770053645:0;git push origin --delete model-exp/proj
 : 1770055494:0;rg 'Computer Science'
-: 1770055522:0;nvim src/data/translations.ts
-: 1770056196:0;ga
 : 1770056218:0;gc About me changes.
-: 1770056220:0;gp
-: 1770056226:0;..
-: 1770056233:0;z portfolio-quick-projects
-: 1770056242:0;z calculator-vanillajs
-: 1770056245:0;cls
-: 1770056248:0;.
-: 1770056266:0;gemini
-: 1770057058:0;..
-: 1770057068:0;z portfolio-website
-: 1770057135:0;pnpm run dev
-: 1770057285:0;nvim src/data/translations.ts
 : 1770057316:0;nvim src/data/projects.ts
-: 1770060116:0;pnpm run dev
-: 1770060210:0;ga
 : 1770060233:0;gc Project addition to portfolio.
-: 1770060235:0;gp
-: 1770060330:0;gemini
-: 1770061332:0;ga
 : 1770061351:0;gc New projects layout.
-: 1770061353:0;gp
-: 1770061776:0;gemini
-: 1770066389:0;reload
-: 1770066395:0;ga
 : 1770066407:0;gc Update to the hero page.
-: 1770066409:0;gp
-: 1770074229:0;pnpm run dev
-: 1770078200:0;gemini
-: 1770078961:0;pnpm run dev
-: 1770081176:0;nvim src/components/sections/Education.tsx
-: 1770081531:0;ga
 : 1770081554:0;gc New certifications layout and additions to reflect LinkedIn.
-: 1770081557:0;gp
-: 1770081677:0;nvim src/components/sections/Education.tsx
 : 1770081816:0;pnpm run dev
 : 1770081900:0;nvim src/components/sections/Education.tsx
 : 1770082533:0;rg 'open to'
 : 1770082537:0;rg 'Open to'
 : 1770082550:0;nvim src/data/translations.ts
-: 1770082665:0;ga
 : 1770082695:0;gc Added URLs for credentials in the certification section.
-: 1770082697:0;gp
-: 1770082753:0;gemini
-: 1770083916:0;cls
-: 1770083919:0;ga
 : 1770083926:0;gc New tech added.
-: 1770083928:0;gp
-: 1770084602:0;gemini
-: 1770085358:0;reload
-: 1770085361:0;ga
 : 1770085380:0;gc Useless comments removed.
-: 1770085381:0;gp
-: 1770085391:0;..
 : 1770085440:0;repo expense-tracker
-: 1770085446:0;ls
-: 1770085463:0;ll
 : 1770085468:0;rm -rf .git
-: 1770085470:0;cls
 : 1770085484:0;mkdir expense-tracker
 : 1770085490:0;z expense-tracker
-: 1770085495:0;repo
-: 1770085515:0;gemini
-: 1770089215:0;systemctl suspend
-: 1770118174:0;kanshi
 : 1770118218:0;source kanshirc
-: 1770118231:0;cls
 : 1770118276:0;z /home/runner/dev/personal/expense-tracker/ && eza -a --icons --group-directories-first
-: 1770118302:0;cls
-: 1770118317:0;..
 : 1770118325:0;rm -rf expense-tracker
-: 1770118328:0;ll
-: 1770118334:0;..
-: 1770118339:0;cls
 : 1770118344:0;cla
-: 1770118345:0;cls
-: 1770118354:0;reload
-: 1770118358:0;cls
-: 1770119642:0;ll
 : 1770119745:0;mkcd movie-catalog-manager
-: 1770119747:0;repo
 : 1770119805:0;# ROLE\
 Act as a Senior Java Backend Engineer. I need you to generate the full source code for a Spring Boot 3 application called "MovieShelf".\
 \
@@ -648,59 +514,20 @@ Please generate the files in this specific order with the filename commented at 
 10. `src/main/java/com/portfolio/movieshelf/controller/MovieController.java` (Annotated with @Operation and @Tags for Swagger).\
 \
 GENERATE COD
-: 1770119807:0;cls
-: 1770119811:0;gemini
 : 1770119820:0;z movie-catalog-manager
-: 1770122171:0;..
 : 1770122182:0;rm -rf movie-catalog-manager
-: 1770122184:0;ll
 : 1770123211:0;mkcd url-shortener
 : 1770123214:0;repo
-: 1770123220:0;gemini
-: 1770124315:0;..
-: 1770124324:0;z url-shortener
-: 1770124331:0;..
-: 1770124335:0;z url-shortener
-: 1770124338:0;cls
-: 1770124345:0;ga
 : 1770124354:0;gc First upload.
-: 1770124359:0;gp
-: 1770125047:0;reload
-: 1770125049:0;cls
-: 1770125164:0;gs
-: 1770125185:0;ga
 : 1770125210:0;gc Updated gitignore to ignore local db files.
-: 1770125212:0;gp
-: 1770125341:0;gs
-: 1770125475:0;gemini
-: 1770137136:0;gs
-: 1770137144:0;ga
 : 1770137177:0;gc Added jest for tests in the backend
-: 1770137178:0;gp
-: 1770137637:0;npm run dev
-: 1770137943:0;gs
-: 1770138002:0;ga
 : 1770138413:0;glog
 : 1770138422:0;gl
 : 1770138428:0;git log
 : 1770138488:0;git commit -m 'Implementation of simple frontend interface with Vite and Tailwind CSS.'
-: 1770138492:0;gp
-: 1770138625:0;reboot
-: 1770401217:0;z /home/runner/dev/personal/url-shortener/ && eza -a --icons --group-directories-first
-: 1770401220:0;gs
-: 1770401224:0;cls
-: 1770401227:0;z
-: 1770401229:0;cls
-: 1770401230:0;tmux
-: 1770401254:0;z /home/runner/dev/personal/url-shortener/ && eza -a --icons --group-directories-first
-: 1770401257:0;cls
-: 1770401266:0;gemini
 : 1770401611:0;paru -S steam
 : 1770402332:0;sudo fdisk -l
-: 1770402416:0;lsblk -f
 : 1770403681:0;suspend
-: 1770403688:0;systemctl suspend
-: 1770415045:0;lsblk -f
 : 1770415406:0;cfdisk /dev/nvme0n1
 : 1770415411:0;sudo cfdisk /dev/nvme0n1
 : 1770415557:0;btrfs device add -f /dev/nvme0n1p2 /
@@ -710,77 +537,25 @@ GENERATE COD
 : 1770415853:0;rm -rf /boot/efi/EFI/Microsoft
 : 1770415858:0;sudo rm -rf /boot/efi/EFI/Microsoft
 : 1770415868:0;grub-mkconfig -o /boot/grub/grub.cfg
-: 1770415873:0;sudo grub-mkconfig -o /boot/grub/grub.cfg
 : 1770416208:0;visudo /etc/default/grub
-: 1770416217:0;sudo vi /etc/default/grub
-: 1770416280:0;sudo nvim /etc/default/grub
-: 1770416340:0;sudo grub-mkconfig -o /boot/grub/grub.cfg
-: 1770416348:0;cls
-: 1770416349:0;tmux
 : 1770416405:0;lsblk -f
-: 1770416432:0;cls
-: 1770417071:0;hyprrc
-: 1770422886:0;cls
-: 1770450236:0;systemctl suspend
 : 1770513337:0;pkill -STOP ""
 : 1770513857:0;pkill -STOP "vivaldi"
 : 1770513951:0;pkill -CONT "vivaldi"
 : 1770514254:0;sudo pacman -S btop htop nvtop
-: 1770514266:0;htop
-: 1770514341:0;btop
-: 1770514404:0;cls
-: 1770538706:0;systemctl suspend
-: 1770596289:0;hyprrc
-: 1770596324:0;cls
-: 1770596363:0;hyprctl reload
-: 1770596366:0;cls
-: 1770597121:0;hyprrc
 : 1770597128:0;hyprctl reload
-: 1770601081:0;systemctl suspend
 : 1770845693:0;rg server.ini
 : 1770845707:0;z Zomboid
 : 1770845751:0;cd Saves
-: 1770845753:0;ls
 : 1770845760:0;cd Sandbox
-: 1770845763:0;ll
-: 1770845765:0;la
 : 1770845791:0;cd 2026-02-11_14-03-04
 : 1770845809:0;nv mods.txt
-: 1770845861:0;z
-: 1770845862:0;cls
-: 1770846397:0;devp
-: 1770846402:0;z url-shortener
-: 1770846427:0;gemini
-: 1770846673:0;devp
-: 1770846679:0;z url-shortener
-: 1770846685:0;gemini
-: 1770864469:0;systemctl suspend
-: 1770923286:0;devp
-: 1770923291:0;z url-shortener
-: 1770923739:0;gemini
-: 1770957950:0;systemctl suspend
-: 1770976753:0;reload
-: 1770976759:0;cls
-: 1771002850:0;htop
-: 1771007045:0;reload
-: 1771007050:0;reboot
-: 1771019468:0;hyprrc
-: 1771020008:0;syncdot
-: 1771020081:0;z /home/runner/dev/personal/url-shortener/ && eza -a --icons --group-directories-first
-: 1771020087:0;gemini
-: 1771020348:0;z /home/runner/dev/personal/url-shortener/ && eza -a --icons --group-directories-first
 : 1771020356:0;rg fast
 : 1771020378:0;z client
-: 1771020389:0;nv index.html
 : 1771020459:0;z src
 : 1771020468:0;nv main.tsx
-: 1771020476:0;nv App.tsx
-: 1771020653:0;z /home/runner/dev/personal/url-shortener/ && eza -a --icons --group-directories-first
 : 1771020658:0;cd client
-: 1771020662:0;npm run dev
 : 1771021256:0;nv App.tsx
-: 1771021376:0;..
-: 1771021379:0;gemini
 : 1771023654:0;..
 : 1771023667:0;z portfolio-website
 : 1771023671:0;gemini
@@ -2408,3 +2183,34 @@ rm -rf ~/.cache/plasma* ~/.cache/k*
 : 1773094359:0;z zsh
 : 1773094362:0;gs
 : 1773094366:0;syncdot
+: 1773094371:0;gemini
+: 1773094432:0;tmux kill-server
+: 1773094445:0;cls
+: 1773094449:0;tmux
+: 1773094454:0;exit
+: 1773094456:0;tmux
+: 1773094458:0;exit
+: 1773094461:0;cls
+: 1773094466:0;dot
+: 1773094764:0;gs
+: 1773094797:0;..
+: 1773094799:0;cls
+: 1773094810:0;z .config
+: 1773094816:0;z configstore
+: 1773094852:0;cls
+: 1773094853:0;z
+: 1773094856:0;cls
+: 1773094859:0;z .gemini
+: 1773094865:0;ll
+: 1773094866:0;laa
+: 1773094878:0;rm -rf commands
+: 1773094884:0;rm -rf config.toml
+: 1773094891:0;rm -rf settings.json
+: 1773094893:0;cls
+: 1773094897:0;ll
+: 1773094900:0;..
+: 1773094903:0;z zsh
+: 1773094906:0;gemini
+: 1773095492:0;ll
+: 1773095509:0;..
+: 1773095512:0;syncdot
