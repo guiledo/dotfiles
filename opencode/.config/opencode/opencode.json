@@ -29,10 +29,12 @@
     "edit": "ask",
     "bash": {
       "git *": "allow",
-      "ls": "allow",
+      "ls *": "allow",
       "cat *": "allow",
       "man *": "allow",
       "grep *": "allow",
+      "find *": "allow",
+      "cd *": "allow",
       "paru *": "ask",
       "rm *": "ask",
       "*": "ask"
