@@ -346,6 +346,12 @@ chpwd() {
 
 # Source shell
 reload() {
+  # Reload Kanshi config
+  pkill -HUP kanshi
+
+  # Reload Waybar and Waybar AutoHide custom script
+  pkill -9 -x waybar ; nohup waybar >/dev/null 2>&1 &
+
   if [ -n "$ZSH_VERSION" ]; then
     source "${ZDOTDIR:-$HOME}/.zshrc"
 
@@ -365,12 +371,6 @@ reload() {
 # --- MISC ---
 # Oh-My-Zsh default and simple prompt in the absence of Starship
 # prompt_context(){}
-
-# Reload Kanshi config 
-pkill -HUP kanshi
-
-# Reload Waybar and Waybar AutoHide custom script
-pkill -9 -x waybar ; nohup waybar >/dev/null 2>&1 &
 
 # fnm
 FNM_PATH="/home/runner/.local/share/fnm"
