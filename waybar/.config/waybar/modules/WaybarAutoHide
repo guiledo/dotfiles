@@ -68,7 +68,6 @@ while true; do
 
     POSITION=$(get_bar_position)
 
-    tiled=$(get_tiled_on_active_ws)
     special=$(focused_special_ws && echo 1 || echo 0)
 
     case "$POSITION" in
@@ -104,13 +103,13 @@ while true; do
             ;;
     esac
 
-    if (( special || tiled==0 || (tiled>=1 && SHOW_CONDITION) )); then
+    if (( special || SHOW_CONDITION )); then
         if ! $bar_visible; then
             pkill -SIGUSR2 waybar
             bar_visible=true
             touch "$AUTO_FILE"
         fi
-    elif (( tiled>=1 && HIDE_CONDITION )); then
+    elif (( HIDE_CONDITION )); then
         if $bar_visible; then
             pkill -SIGUSR1 waybar
             bar_visible=false
