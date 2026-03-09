@@ -42,6 +42,8 @@ focused_special_ws() {
 autohide_mode() {
 pgrep -f "WaybarAutoHide$" | grep -v $$ >/dev/null && exit
 bar_visible=false
+pkill -SIGUSR1 waybar
+rm -f "$AUTO_FILE"
 
 # Signal handler for wake-up recovery
 trap "bar_visible=false; pkill -SIGUSR2 waybar" SIGCONT

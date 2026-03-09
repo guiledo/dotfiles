@@ -5,7 +5,7 @@
     //"mode": "hide",
     "on-sigusr1": "hide",
     "on-sigusr2": "show",
-    "start_hidden": false,
+    "start_hidden": true,
     "exclusive": false,
     "passthrough": false,
     "gtk-layer-shell": true,
