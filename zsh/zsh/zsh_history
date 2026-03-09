@@ -2377,3 +2377,6 @@ rm -rf ~/.cache/plasma* ~/.cache/k*
 : 1773073221:0;z
 : 1773073229:0;nv .zshenv
 : 1773073250:0;nv .zsh_history
+: 1773082359:0;cls
+: 1773082361:0;gs
+: 1773082366:0;syncdot
