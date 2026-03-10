@@ -31,6 +31,7 @@ calligra
 cantor
 cliphist
 colord-kde
+cuda
 discover
 docker
 docker-compose
@@ -223,6 +224,7 @@ kwordquiz
 kwrited
 layer-shell-qt
 lib32-nvidia-utils
+libappindicator
 libkscreen
 libksysguard
 libplasma
@@ -270,6 +272,7 @@ pavucontrol
 picmi
 pim-data-exporter
 pim-sieve-editor
+pipewire-alsa
 pipewire-pulse
 plasma-activities
 plasma-activities-stats
@@ -296,6 +299,7 @@ polkit-kde-agent
 powerdevil
 poxml
 print-manager
+python-pip
 qqc2-breeze-style
 qrca
 reflector
@@ -340,6 +344,7 @@ wacomtablet
 waybar
 wget
 woff2-font-awesome
+wtype
 xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
 xdg-desktop-portal-kde

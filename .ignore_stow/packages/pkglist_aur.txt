@@ -2,4 +2,5 @@ dell-g15-controller
 neofetch
 paru
 paru-debug
+voxtype
 zapzap
