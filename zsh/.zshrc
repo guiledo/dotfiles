@@ -53,7 +53,7 @@ alias count='ls -1 | wc -l'
 alias l='eza --icons --group-directories-first'
 alias la='eza -alF --icons --group-directories-first --git'
 alias ll='eza -a --icons --group-directories-first'
-alias mk='mkdir -p'
+alias mkdir='mkdir -p'
 alias mkcd='func(){ mkdir -p "$1" && cd "$1" && eza -a --icons --group-directories-first; }; func'
 alias tree='eza --tree --icons'
 
