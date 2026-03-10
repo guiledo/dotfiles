@@ -61,9 +61,9 @@ alias tree='eza --tree --icons'
 alias .='whoami && pwd'
 alias ..='cd ..'
 alias ...='cd ../..'
-alias dev='cd $HOME/dev'
-alias devw='cd $HOME/dev/work'
-alias devp='cd $HOME/dev/personal'
+alias dev='cd $HOME/Development'
+alias devw='cd $HOME/Development/work'
+alias devp='cd $HOME/Development/personal'
 alias dot='cd $HOME/dotfiles/'
 alias fzf='fzf -e'
 alias hyprrc='nvim $HOME/.config/hypr/hyprland.conf'
@@ -92,7 +92,7 @@ alias psg='ps aux | grep -i'
 
 # Search Aliases
 alias fd='fd -H -I '
-alias rg='rg --one-file-system '
+alias rg='rg --one-file-system --hidden --glob "!**/.cache/*" --glob "!**/cache/*" --glob "!**/tmp/*" --glob "!**/.tmp/*" --glob "!**/node_modules/*" --glob "!**/.venv/*" --glob "!**/target/*" --glob "!**/.git/*" --glob "!**/.ssh/*" --glob "!**/.gnupg/*" --glob "!**/.local/share/*" --glob "!**/.cargo/*" --glob "!**/.rustup/*" --glob "!**/.npm/*" --glob "!**/.bun/*" --glob "!**/.local/state/*" --glob "!**/.zsh_history" --glob "!**/.zcompdump*" '
 
 # Shell & System Aliases
 alias cls='clear'
