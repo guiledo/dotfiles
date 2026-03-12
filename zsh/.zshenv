@@ -11,6 +11,11 @@ export STARSHIP_CACHE=$HOME/.starship/cache
 export EDITOR=nvim
 export VISUAL=nvim
 
+# Mozilla/NVIDIA Fixes (Crash on Wake / Wayland stability)
+export MOZ_DISABLE_RDD_SANDBOX=1
+export MOZ_ENABLE_WAYLAND=1
+export LIBVA_DRIVER_NAME=nvidia
+
 # Homebrew
 if [ -x "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
