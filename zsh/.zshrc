@@ -37,14 +37,16 @@ if command -v fzf >/dev/null 2>&1; then
 fi
 
 # Options & History
+export HISTSIZE=100000000
+export SAVEHIST=100000000
 setopt extendedglob
-setopt appendhistory
-setopt sharehistory
-setopt incappendhistory
-setopt histignoredups
-setopt histignorespace
-SAVEHIST=2000
-HISTSIZE=1000
+setopt append_history
+setopt share_history
+setopt inc_append_history
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_reduce_blanks
+setopt extended_history
 
 # File System Aliases
 alias chmodx='chmod +x'
@@ -92,7 +94,7 @@ alias psg='ps aux | grep -i'
 
 # Search Aliases
 alias fd='fd -H -I '
-alias rg='rg --one-file-system --hidden --glob "!**/.cache/*" --glob "!**/cache/*" --glob "!**/tmp/*" --glob "!**/.tmp/*" --glob "!**/node_modules/*" --glob "!**/.venv/*" --glob "!**/target/*" --glob "!**/.git/*" --glob "!**/.ssh/*" --glob "!**/.gnupg/*" --glob "!**/.local/share/*" --glob "!**/.cargo/*" --glob "!**/.rustup/*" --glob "!**/.npm/*" --glob "!**/.bun/*" --glob "!**/.local/state/*" --glob "!**/.zsh_history" --glob "!**/.zcompdump*" '
+alias rg='rg --max-columns 300 --one-file-system --hidden --glob "!**/.cache/*" --glob "!**/cache/*" --glob "!**/tmp/*" --glob "!**/.tmp/*" --glob "!**/node_modules/*" --glob "!**/.venv/*" --glob "!**/target/*" --glob "!**/.git/*" --glob "!**/.ssh/*" --glob "!**/.gnupg/*" --glob "!**/.local/share/*" --glob "!**/.cargo/*" --glob "!**/.rustup/*" --glob "!**/.npm/*" --glob "!**/.bun/*" --glob "!**/.local/state/*" --glob "!**/.zsh_history" --glob "!**/.zcompdump*" '
 
 # Shell & System Aliases
 alias cls='clear'
