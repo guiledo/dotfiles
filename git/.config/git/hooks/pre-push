@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# Global Gitleaks Pre-push Hook
+# This will prevent any push that contains potential secrets
+
+if command -v gitleaks >/dev/null 2>&1; then
+    echo -e "\033[1;33m[Gitleaks] Scanning your commits for secrets...\033[0m"
+    
+    # --staged: scan what's about to be pushed
+    # --verbose: show details on match
+    # --redact: hide the actual secret in the output
+    gitleaks protect --staged --verbose --redact
+    
+    EXIT_CODE=$?
+    
+    if [[ $EXIT_CODE -ne 0 ]]; then
+        echo -e "\033[0;31m[Gitleaks] PUSH REJECTED: Potential secrets detected.\033[0m"
+        echo -e "\033[0;33mPlease remove the secrets from your git history before pushing.\033[0m"
+        exit 1
+    fi
+    
+    echo -e "\033[0;32m[Gitleaks] Scan passed. Proceeding with push.\033[0m"
+else
+    # Only show warning if not in a known repo where gitleaks is already ignored
+    echo -e "\033[0;33m[Gitleaks] Warning: gitleaks is not installed. Skipping local secret scan.\033[0m"
+fi
+
+exit 0

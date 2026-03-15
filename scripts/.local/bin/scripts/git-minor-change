@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Quickly add all changes, commit with an auto-message, and push
+
 git add -A
 git commit -m "[auto] Minor change in the codebase."
 git push

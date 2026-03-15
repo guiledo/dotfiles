@@ -5,6 +5,14 @@
 # Change to your dotfiles directory
 cd $HOME/dotfiles || exit
 
+# Scan for secrets before doing anything
+echo "Running secret scan..."
+./scripts/security/scan_secrets.sh
+if [ $? -ne 0 ]; then
+    echo " Sync aborted: Secrets detected!"
+    exit 1
+fi
+
 # Add all changes
 git add -A
 

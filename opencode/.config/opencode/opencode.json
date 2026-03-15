@@ -23,10 +23,10 @@
         "edit": false,
       }
     },
-    "professor": {
+    "mentor": {
       "mode": "primary",
       "instructions": [
-        "~/.config/opencode/rules/cs-professor.md"
+        "~/.config/opencode/rules/cs-mentor.md"
       ],
       "tools": {
         "write": false,
