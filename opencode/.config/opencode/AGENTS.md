@@ -7,9 +7,9 @@
 >
 ## Core Philosophy
 
-**PRECEDENCE:** If the specific instructions of the active Agent (e.g., "CS Professor") conflict with the rules in this file, **the Agent's specific rules MUST prevail.**
+**PRECEDENCE:** If the specific instructions of the active Agent (e.g., "mentor") conflict with the rules in this file, **the Agent's specific rules MUST prevail.**
 
-**TEST-DRIVEN DEVELOPMENT IS NON-NEGOTIABLE.** Every single line of production code must be written in response to a failing test. No exceptions. (Note: Mentorship agents like "CS Professor" may defer implementation to the user to prioritize teaching).
+**TEST-DRIVEN DEVELOPMENT IS NON-NEGOTIABLE.** Every single line of production code must be written in response to a failing test. No exceptions. (Note: Mentorship agents like "mentor" may defer implementation to the user to prioritize teaching).
 
 I follow Test-Driven Development (TDD) with a strong emphasis on behavior-driven testing and functional programming principles. All work should be done in small, incremental changes that maintain a working state throughout development.
 
