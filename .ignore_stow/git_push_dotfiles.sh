@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Este script sincroniza (comita e envia) o diretório dotfiles.
 
