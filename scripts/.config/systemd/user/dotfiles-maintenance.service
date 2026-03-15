@@ -1,0 +1,11 @@
+[Unit]
+Description=Periodic Dotfiles Sync and Package Backup
+
+[Service]
+Type=oneshot
+# Use absolute paths for reliability in systemd
+ExecStart=/bin/bash -c '/home/runner/dotfiles/.ignore_stow/git_push_dotfiles.sh'
+ExecStartPost=/bin/bash -c '/home/runner/dotfiles/.ignore_stow/packages/backup_packages.sh'
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,13 @@
+[Unit]
+Description=Run Dotfiles Maintenance every 4 hours and on wake-up
+
+[Timer]
+# Run 5 minutes after boot
+OnBootSec=5min
+# Run every 4 hours
+OnUnitActiveSec=4h
+# If the machine was off/suspended when the timer should have run, run it immediately after wake/boot
+Persistent=true
+
+[Install]
+WantedBy=timers.target

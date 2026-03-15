@@ -22,6 +22,16 @@
         "write": false,
         "edit": false,
       }
+    },
+    "professor": {
+      "mode": "primary",
+      "instructions": [
+        "~/.config/opencode/rules/cs-professor.md"
+      ],
+      "tools": {
+        "write": false,
+        "edit": false
+      }
     }
   },
   "permission": {

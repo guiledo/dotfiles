@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Display local and public IP addresses
+echo "--- Local IP ---"
+ip -o -4 addr show | awk '{print $2 ": " $4}'
+echo ""
+echo "--- Public IP ---"
+curl -s ifconfig.me
+echo ""

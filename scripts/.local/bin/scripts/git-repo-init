@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Initialize a new Git repository and create it on GitHub
+git init -b main && \
+gh repo create --private --source=. --remote=origin && \
+git add . && \
+git commit -m "First upload" && \
+git push -u --all && \
+gh browse

@@ -80,7 +80,7 @@ alias nv='nvim '
 alias zshrc='nvim $HOME/.zshrc'
 
 # Network Aliases
-alias myip="ip a | grep 'inet ' && curl ifconfig.me"
+alias myip="$HOME/.local/bin/scripts/myip"
 alias ports='ss -tuln'
 
 # Package Management Aliases
@@ -108,7 +108,7 @@ alias ga='git add .'
 alias gamend='git commit --amend --no-edit'
 alias gb='git branch -v'
 alias gc='git-commit'
-alias gc-='git-commit-simple'
+alias gc-="$HOME/.local/bin/scripts/git-minor-change"
 alias gco='git checkout'
 alias gco-='git checkout -'
 alias gdiff='git diff'
@@ -124,7 +124,7 @@ alias gs='git status -s'
 alias gsw='git switch'
 alias gu='git pull'
 alias gunstage='git reset HEAD --'
-alias repo='git init -b main && gh repo create --private --source=. --remote=origin && git add . && git commit -m "First upload" && git push -u --all && gh browse'
+alias repo="$HOME/.local/bin/scripts/git-repo-init"
 
 # Stow/dotfiles Aliases
 alias newpkg='$HOME/dotfiles/.ignore_stow/packages/backup_packages.sh'
@@ -193,12 +193,6 @@ git-commit() {
   git commit -m "$*"
 }
 
-git-commit-simple() {
-  git add -A
-  git commit -m "[auto] Minor change in the codebase."
-  git push
-}
-
 tmp() {
     export CURRENT_TEMP_DIR=$(mktemp -d /tmp/tempXXXXXX)
     cd "$CURRENT_TEMP_DIR" || return
@@ -227,19 +221,13 @@ chpwd() {
 }
 
 reload() {
-  pkill -HUP kanshi >/dev/null 2>&1
-  pkill -9 -x waybar >/dev/null 2>&1
+  "$HOME/.local/bin/scripts/refresh-ui"
 
   if [ -n "$ZSH_VERSION" ]; then
-    waybar >/dev/null 2>&1 &!
     source "${ZDOTDIR:-$HOME}/.zshrc"
   elif [ -n "$BASH_VERSION" ]; then
-    nohup waybar >/dev/null 2>&1 &
     source "$HOME/.bashrc"
   elif [ -n "$FISH_VERSION" ]; then
-    waybar >/dev/null 2>&1 &
-    disown
-    commandline -f repaint
     source ~/.config/fish/config.fish
   else
     echo "Unsupported shell"
