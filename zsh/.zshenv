@@ -32,3 +32,8 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
+
+# Go Configuration
+export GOPATH="$HOME/.go"
+export PATH="$PATH:$GOPATH/bin"
+
