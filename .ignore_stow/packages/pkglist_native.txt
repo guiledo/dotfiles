@@ -58,6 +58,7 @@ fzf
 ghostwriter
 git
 github-cli
+gitleaks
 glu
 granatier
 grantlee-editor
