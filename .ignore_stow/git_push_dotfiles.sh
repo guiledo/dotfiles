@@ -1,14 +1,12 @@
 #!/bin/bash
 
 # Este script sincroniza (comita e envia) o diretório dotfiles.
-# É uma prática altamente recomendada usar chaves SSH para autenticação
-# a fim de evitar falhas no 'git push' em scripts não-interativos.
 
 # Change to your dotfiles directory
 cd $HOME/dotfiles || exit
 
 # Add all changes
-git add -A 
+git add -A
 
 # Check if there is anything to commit
 if ! git diff-index --quiet HEAD --; then

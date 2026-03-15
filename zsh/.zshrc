@@ -58,6 +58,7 @@ alias ll='eza -a --icons --group-directories-first'
 alias mkdir='mkdir -p'
 alias mkcd='func(){ mkdir -p "$1" && cd "$1" && eza -a --icons --group-directories-first; }; func'
 alias tree='eza --tree --icons'
+alias wallpaper=''
 
 # Navigation Aliases
 alias .='whoami && pwd'
@@ -126,7 +127,6 @@ alias gunstage='git reset HEAD --'
 alias repo='git init -b main && gh repo create --private --source=. --remote=origin && git add . && git commit -m "First upload" && git push -u --all && gh browse'
 
 # Stow/dotfiles Aliases
-alias archpkg='$HOME/dotfiles/.ignore_stow/packages/install_packages.sh'
 alias newpkg='$HOME/dotfiles/.ignore_stow/packages/backup_packages.sh'
 alias syncdot='$HOME/dotfiles/.ignore_stow/git_push_dotfiles.sh'
 
@@ -196,6 +196,7 @@ git-commit() {
 git-commit-simple() {
   git add -A
   git commit -m "[auto] Minor change in the codebase."
+  git push
 }
 
 tmp() {
@@ -209,11 +210,11 @@ untmp() {
         echo "Error: No temporary workspace is currently active."
         return 1
     fi
-    
+ 
     local target="$CURRENT_TEMP_DIR"
-    
+ 
     cd - > /dev/null 2>&1 || cd /tmp
-    
+ 
     rm -rf "$target"
     unset CURRENT_TEMP_DIR
     echo "Workspace deleted: $target"
