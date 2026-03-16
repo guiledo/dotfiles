@@ -54,6 +54,12 @@ touch "$AUTO_FILE"
 trap "bar_visible=false; pkill -SIGUSR2 waybar; bar_visible=true" SIGCONT
 
 while true; do
+    # Ensure waybar is running
+    if ! pgrep -x "waybar" >/dev/null; then
+        sleep 2
+        continue
+    fi
+
     # Verify if Hyprland is reachable
     if ! timeout 0.5 hyprctl version >/dev/null 2>&1; then
         sleep 2
@@ -107,7 +113,6 @@ while true; do
             EDGE1=$(awk -v w="$WIDTH" 'BEGIN {printf "%d", w * 0.9}')
             EDGE2=$(awk -v w="$WIDTH" 'BEGIN {printf "%d", w * 0.99}')
             SHOW_CONDITION=$(( X >= EDGE2 ))
-            HIDE_CONDITION=$(( X < EDGE1 ))
             ;;
         *)
             EDGE1=$(awk -v h="$HEIGHT" 'BEGIN {printf "%d", h * 0.01}')
