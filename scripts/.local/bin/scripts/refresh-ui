@@ -1,9 +1,15 @@
 #!/usr/bin/env bash
-# Refresh UI components (Kanshi and Waybar)
+# Refresh UI components (Kanshi, Waybar and Hyprpaper)
 pkill -HUP kanshi >/dev/null 2>&1
 pkill -9 -x waybar >/dev/null 2>&1
+pkill -9 -x hyprpaper >/dev/null 2>&1
 
 # Restart Waybar if it exists
 if command -v waybar >/dev/null 2>&1; then
   waybar >/dev/null 2>&1 &
+fi
+
+# Restart Hyprpaper if it exists
+if command -v hyprpaper >/dev/null 2>&1; then
+  hyprpaper >/dev/null 2>&1 &
 fi
