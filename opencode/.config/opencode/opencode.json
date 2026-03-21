@@ -55,6 +55,7 @@
       "tree*": "allow",
       "fd*": "allow",
       "echo*": "allow",
+      "which*": "allow",
       "pwd*": "allow",
       "chmod*": "ask",
       "chown*": "ask",
