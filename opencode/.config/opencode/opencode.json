@@ -22,8 +22,8 @@
       }
     },
     "mentor": {
-      "hidden": true,
-      "mode": "primary",
+      "hidden": false,
+      "mode": "subagent",
       "instructions": [
         "~/.config/opencode/rules/cs-mentor.md"
       ],
@@ -52,6 +52,7 @@
       "find*": "allow",
       "cd*": "allow",
       "rg*": "allow",
+      "eza*": "allow",
       "tree*": "allow",
       "fd*": "allow",
       "echo*": "allow",

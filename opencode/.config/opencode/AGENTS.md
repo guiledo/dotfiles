@@ -35,3 +35,8 @@
 - **SYSTEMATIC DEBUGGING (ANTI-LOOP):** Never "guess and check". If a test or command fails, you must explicitly state a hypothesis for *why* it failed before changing code. If you fail 3 times on the same issue, STOP and ask the user for guidance. Do not brute-force solutions.
 - **EXPLICIT AMBIGUITY RESOLUTION:** If a requirement is missing or ambiguous, STOP and ask the user. Never invent or hallucinate business logic, schema requirements, or architectural constraints.
 - **CLEAN COMMITS:** Final code must be production-ready. Always remove exploratory debugging statements (e.g., `console.log`, `print`, `dbg!`), unused imports, and mock data before declaring a task complete.
+
+## 7. Tool Preference Rules
+- **PREFER MODERN TOOLS:** Always use `rg` (ripgrep) instead of `grep` and `eza --icons --git` instead of `ls` when available.
+- **VERBOSE LISTING:** When using `eza`, prefer `-la` for a comprehensive view of the directory state.
+- **SMART SEARCH:** Use `rg` with its default smart filtering (respecting `.gitignore`) unless explicitly asked to search ignored files.
