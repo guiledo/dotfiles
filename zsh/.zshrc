@@ -97,11 +97,12 @@ alias psg='ps aux | grep -i'
 alias fd='fd -H -I '
 alias rg='rg --max-columns 300 --one-file-system --hidden --glob "!**/.cache/*" --glob "!**/cache/*" --glob "!**/tmp/*" --glob "!**/.tmp/*" --glob "!**/node_modules/*" --glob "!**/.venv/*" --glob "!**/target/*" --glob "!**/.git/*" --glob "!**/.ssh/*" --glob "!**/.gnupg/*" --glob "!**/.local/share/*" --glob "!**/.cargo/*" --glob "!**/.rustup/*" --glob "!**/.npm/*" --glob "!**/.bun/*" --glob "!**/.local/state/*" --glob "!**/.zsh_history" --glob "!**/.zcompdump*" '
 
-# Shell & System Aliases
+# Processes, Shell & System Aliases
 alias cls='clear'
 alias hist='history | less'
 alias ff='fastfetch'
 alias ncdu='ncdu -x'
+alias oc='opencode'
 
 # Git Aliases
 alias ga='git add .'
