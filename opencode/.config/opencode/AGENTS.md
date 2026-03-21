@@ -1,141 +1,37 @@
-# Development Guidelines for Agentic Coding
+# High-Quality Agentic Development Guidelines
 
-> **Architecture:**
-> - **AGENTS.md** (this file): Core philosophy + quick reference (~100 lines, always loaded)
-> - **Skills**: Detailed patterns loaded on-demand (tdd, testing, mutation-testing, test-design-reviewer, typescript-strict, functional, refactoring, expectations, planning, front-end-testing, react-testing, ci-debugging, hexagonal-architecture, domain-driven-design, frontend-design)
-> - **Agents**: Specialized behavioral roles (defined in `opencode.json`) that can override these defaults.
->
-## Core Philosophy
+## 1. Core Philosophy: The Quality Gates
+- **STRICT RED-GREEN-REFACTOR (RGR):** Non-negotiable. 
+  - **RED:** Write a test that fails with a *specific, expected message*. 
+  - **GREEN:** Write the minimal code to satisfy the test.
+  - **REFACTOR:** Optimize for readability and performance *after* green.
+- **SELF-DOCUMENTING CODE:** Comments are code smells. Code must be expressive and idiomatic. Use comments ONLY for non-obvious "Why" (business logic constraints or architectural decisions), never for "What" or "How".
+- **ZERO PLACEHOLDERS:** Never use `// TODO` or `// implementation here`. Deliver complete, functional units.
 
-**PRECEDENCE:** If the specific instructions of the active Agent (e.g., "mentor") conflict with the rules in this file, **the Agent's specific rules MUST prevail.**
+## 2. Cybersecurity & Trust (Mandatory)
+- **SECRET BLINDNESS:** Never hardcode keys, tokens, or credentials. Use `.env` and verify `.gitignore` before every write.
+- **DEPENDENCY GUARD:** Verify package names for typosquatting before installation. Check `npm audit` (or equivalent) for new dependencies.
+- **THREAT MODELING:** Assume all external input (API, CLI, User) is hostile. Mandate sanitization, escaping, and parameterized queries.
+- **LEAST PRIVILEGE:** Use minimal system and file permissions. Never suggest broad `chmod` (e.g., `777`) or insecure shell execution (`eval`, raw shell spawning).
 
-**TEST-DRIVEN DEVELOPMENT IS NON-NEGOTIABLE.** Every single line of production code must be written in response to a failing test. No exceptions. (Note: Mentorship agents like "mentor" may defer implementation to the user to prioritize teaching).
+## 3. Generalist Discovery Protocol
+- **ENVIRONMENT AWARENESS:** The first step of every session MUST be to identify the tech stack and architecture (e.g., `package.json`, `Cargo.toml`, `go.mod`, `pyproject.toml`).
+- **CI/CD RECONNAISSANCE:** Before assuming test or build commands, check for `.github/workflows`, `Makefile`, `Justfile`, or custom scripts. Always use the project's established scripts to ensure parity with the CI pipeline.
+- **IDIOMATIC PRECEDENCE:** Match the project's native style conventions rigorously (e.g., Pythonic for Python, Go-idiomatic for Go). 
+- **GOLD STANDARD (JS/TS):** When starting or working in JS/TS ecosystems without strict pre-existing constraints, prefer `pnpm`, `Vitest`, `Zod`, and `Bun`.
 
-I follow Test-Driven Development (TDD) with a strong emphasis on behavior-driven testing and functional programming principles. All work should be done in small, incremental changes that maintain a working state throughout development.
+## 4. Workflow & Output
+- **PERSISTENT PLANNING:** For complex, multi-step tasks or architectural changes, always persist plans to `.opencode/plans/*.md`. Do NOT pollute the project root.
+- **PARALLEL EXPLORATION:** Use multiple, concurrent tool calls (e.g., `glob` and `grep` together) in a single response to maximize search efficiency.
+- **VERIFIED TYPES:** Reject `any` or loose types. Use `unknown` or define strict schemas at trust boundaries.
+- **GITHUB INTEGRATION:** Prefer using the `gh` CLI for managing Issues, Pull Requests, and checking CI status.
 
-## Quick Reference
+## 5. Logic Verification
+- **TEST BEHAVIOR, NOT INTERNALS:** Tests must interact solely with the public API of the module. 
+- **FACTORY PATTERNS:** Use factory functions for generating test data; avoid shared mutable state in test suites.
+- **FAIL STATE VALIDATION:** Explicitly state the exact expected failure message or condition during the RED phase before writing implementation code.
 
-**Key Principles:**
-
-- Write tests first (TDD)
-- Test behavior, not implementation
-- No `any` types or type assertions
-- Immutable data only
-- Small, pure functions
-- TypeScript strict mode always
-- Use real schemas/types in tests, never redefine them
-
-**Preferred Tools:**
-
-- **Web Development Language**: TypeScript (strict mode)
-- **Testing**: Vitest (prefer Browser Mode for UI tests) + Testing Library
-- **Node Packages**: Prefer pnpm over npm
-- **Node Runtime**: Prefer bun over node.js
-- **State Management**: Prefer immutable patterns
-
-## Testing Principles
-
-**Core principle**: Test behavior, not implementation. 100% coverage through business behavior.
-
-**Quick reference:**
-- Write tests first (TDD non-negotiable)
-- Test through public API exclusively
-- Use factory functions for test data (no `let`/`beforeEach`)
-- Tests must document expected business behavior
-- No 1:1 mapping between test files and implementation files
-
-For detailed testing patterns and examples, load the `testing` skill.
-For verifying test effectiveness through mutation analysis, load the `mutation-testing` skill.
-
-## TypeScript Guidelines
-
-**Core principle**: Strict mode always. Schema-first at trust boundaries, types for internal logic.
-
-**Quick reference:**
-- No `any` types - ever (use `unknown` if type truly unknown)
-- No type assertions without justification
-- Prefer `type` over `interface` for data structures
-- Reserve `interface` for behavior contracts only
-- Define schemas first, derive types from them (Zod/Standard Schema)
-- Use schemas at trust boundaries, plain types for internal logic
-
-For detailed TypeScript patterns and rationale, load the `typescript-strict` skill.
-
-## Code Style
-
-**Core principle**: Functional programming with immutable data. Self-documenting code.
-
-**Quick reference:**
-- No data mutation - immutable data structures only
-- Pure functions wherever possible
-- No nested if/else - use early returns or composition
-- No comments - code should be self-documenting
-- Prefer options objects over positional parameters
-- Use array methods (`map`, `filter`, `reduce`) over loops
-
-For detailed patterns and examples, load the `functional` skill.
-
-## Development Workflow
-
-**Core principle**: RED-GREEN-REFACTOR in small, known-good increments. TDD is the fundamental practice.
-
-**Quick reference:**
-- RED: Write failing test first (NO production code without failing test)
-- GREEN: Write MINIMUM code to pass test
-- REFACTOR: Assess improvement opportunities (only refactor if adds value)
-- **Wait for commit approval** before every commit
-- Each increment leaves codebase in working state
-For detailed TDD workflow, load the `tdd` skill.
-For refactoring methodology, load the `refactoring` skill.
-For significant work, load the `planning` skill. Plans live in `plans/` directory.
-For CI failure diagnosis, load the `ci-debugging` skill.
-For hexagonal architecture projects, load the `hexagonal-architecture` skill.
-For Domain-Driven Design projects, load the `domain-driven-design` skill.
-
-**Project onboarding:** Run `/setup` in any new project to detect its tech stack and generate project-level AGENTS.md, hooks, commands, and PR review agent in one shot. This replaces the need for `/init`.
-
-**Project-level hooks:** Projects should add a PostToolUse hook in `.opencode/opencode.json` to run typecheck after Write/Edit on .ts/.tsx files. Use `/setup` to generate this automatically, or see the global `opencode.json` prettier/eslint hook as a template.
-
-## Output Guardrails
-
-- **Write to files, not chat** — When asked to produce a plan, document, or artifact, always persist it to a file. You may also present it inline for approval, but the file is the source of truth.
-- **Plan-only mode** — When asked for a plan, design, or document only, produce ONLY that artifact. Do not write production code, test code, or make any implementation changes unless explicitly asked.
-- **Incremental output** — When exploring a codebase, produce a first draft of output within 3-4 tool calls. Refine iteratively rather than front-loading all exploration before producing anything.
-
-## Working with LLMs
-
-**Core principle**: Think deeply, follow TDD strictly, capture learnings while context is fresh.
-
-**Quick reference:**
-- ALWAYS FOLLOW TDD - no production code without failing test
-- Assess refactoring after every green (but only if adds value)
-- Update AGENTS.md when introducing meaningful changes
-- Ask "What do I wish I'd known at the start?" after significant changes
-- Document gotchas, patterns, decisions, edge cases while context is fresh
-
-For detailed TDD workflow, load the `tdd` skill.
-For refactoring methodology, load the `refactoring` skill.
-For detailed guidance on expectations and documentation, load the `expectations` skill.
-
-## Browser Automation
-
-Prefer `agent-browser` for web automation. If it is not installed, fall back to other available tools (e.g. `WebFetch`, `curl`, or MCP browser tools). Always try `agent-browser` first.
-
-`agent-browser` core workflow:
-1. `agent-browser open <url>` - Navigate to page
-2. `agent-browser snapshot -i` - Get interactive elements with refs (@e1, @e2)
-3. `agent-browser click @e1` / `fill @e2 "text"` - Interact using refs
-4. Re-snapshot after page changes
-
-Run `agent-browser --help` for all commands.
-
-## Resources and References
-
-- [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
-- [Testing Library Principles](https://testing-library.com/docs/guiding-principles)
-- [Kent C. Dodds Testing JavaScript](https://testingjavascript.com/)
-- [Functional Programming in TypeScript](https://gcanti.github.io/fp-ts/)
-
-## Summary
-
-The key is to write clean, testable, functional code that evolves through small, safe increments. Every change should be driven by a test that describes the desired behavior, and the implementation should be the simplest thing that makes that test pass. When in doubt, favor simplicity and readability over cleverness.
+## 6. Agent Behavioral Guardrails
+- **SYSTEMATIC DEBUGGING (ANTI-LOOP):** Never "guess and check". If a test or command fails, you must explicitly state a hypothesis for *why* it failed before changing code. If you fail 3 times on the same issue, STOP and ask the user for guidance. Do not brute-force solutions.
+- **EXPLICIT AMBIGUITY RESOLUTION:** If a requirement is missing or ambiguous, STOP and ask the user. Never invent or hallucinate business logic, schema requirements, or architectural constraints.
+- **CLEAN COMMITS:** Final code must be production-ready. Always remove exploratory debugging statements (e.g., `console.log`, `print`, `dbg!`), unused imports, and mock data before declaring a task complete.

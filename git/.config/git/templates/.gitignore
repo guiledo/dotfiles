@@ -1,0 +1,30 @@
+# ========================================
+# Git Template: Default Ignore Rules
+# ========================================
+
+# Node
+node_modules/
+dist/
+build/
+coverage/
+.npm/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+.env/
+
+# Rust
+target/
+
+# Go
+bin/
+
+# Environment Variables
+.env
+.env.*
+!.env.example

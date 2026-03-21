@@ -1,29 +1,28 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["opencode-gemini-auth@latest"],
-  //"model": "anthropic/claude-sonnet-4-5",
-  //"small_model": "anthropic/claude-haiku-4-5",
+  "plugin": [],
   "autoupdate": false,
   "default_agent": "plan",
-  // "instructions": [
-    // "~/.config/opencode/rules/performance.md"
-  // ],
+  "instructions": [
+    "~/.config/opencode/AGENTS.md"
+  ],
   "agent": {
     "build": {
       "mode": "primary",
       "tools": {
         "write": true,
-        "edit": true,
+        "edit": true
       }
     },
     "plan": {
       "mode": "primary",
       "tools": {
         "write": false,
-        "edit": false,
+        "edit": false
       }
     },
     "mentor": {
+      "hidden": true,
       "mode": "primary",
       "instructions": [
         "~/.config/opencode/rules/cs-mentor.md"
@@ -35,20 +34,33 @@
     }
   },
   "permission": {
-    "write": "ask",
-    "edit": "ask",
-    "bash": {
-      "git *": "allow",
-      "ls *": "allow",
-      "cat *": "allow",
-      "man *": "allow",
-      "grep *": "allow",
-      "find *": "allow",
-      "cd *": "allow",
-      "paru *": "ask",
-      "rm *": "ask",
+    "write": {
+      "**/.opencode/plans/*.md": "allow",
       "*": "ask"
+    },
+    "edit": {
+      "**/.opencode/plans/*.md": "allow",
+      "*": "ask"
+    },
+    "bash": {
+      "*": "ask",
+      "git*": "allow",
+      "ls*": "allow",
+      "cat*": "allow",
+      "man*": "allow",
+      "grep*": "allow",
+      "find*": "allow",
+      "cd*": "allow",
+      "rg*": "allow",
+      "tree*": "allow",
+      "fd*": "allow",
+      "pwd*": "allow",
+      "chmod*": "ask",
+      "chown*": "ask",
+      "curl*": "ask",
+      "wget*": "ask",
+      "paru*": "ask",
+      "rm*": "ask"
     }
   }
 }
-

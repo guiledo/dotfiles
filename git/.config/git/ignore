@@ -1,0 +1,58 @@
+# ========================================
+# Global Git Ignore
+# ========================================
+
+# ----------------------------------------
+# 1. AI & Agent Tooling (Crucial to keep local)
+# ----------------------------------------
+.opencode/
+.cursor/
+.aider/
+.cline/
+gemini.md
+claude.md
+agents.md
+
+
+# ----------------------------------------
+# 2. Security (Never accidentally commit secrets)
+# ----------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ----------------------------------------
+# 3. Databases (Commonly contain sensitive/local test data)
+# ----------------------------------------
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+
+# ----------------------------------------
+# 4. OS Generated Files
+# ----------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ----------------------------------------
+# 5. Editor & IDE (Your personal setup)
+# ----------------------------------------
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.bak
+
+# ----------------------------------------
+# 6. General Logs & Archives
+# ----------------------------------------
+*.log

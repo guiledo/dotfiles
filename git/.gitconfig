@@ -1,0 +1,7 @@
+[user]
+	name = Guilherme Ledo
+	email = guilhermeledochagas@gmail.com
+[core]
+	hooksPath = /home/runner/.config/git/hooks
+[init]
+	templateDir = ~/.config/git/templates
