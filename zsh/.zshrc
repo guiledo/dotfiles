@@ -103,6 +103,7 @@ alias hist='history | less'
 alias ff='fastfetch'
 alias ncdu='ncdu -x'
 alias oc='opencode'
+alias virtual-machine='virt-manager'
 
 # Git Aliases
 alias ga='git add .'
