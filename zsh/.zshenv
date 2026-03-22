@@ -13,6 +13,7 @@ export VISUAL=nvim
 
 # Mozilla/NVIDIA Fixes (Crash on Wake / Wayland stability)
 export MOZ_DISABLE_RDD_SANDBOX=1
+export MOZ_DISABLE_SOCKET_PROCESS=1
 export MOZ_ENABLE_WAYLAND=1
 export LIBVA_DRIVER_NAME=nvidia
 
@@ -32,8 +33,3 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-
-# Go Configuration
-export GOPATH="$HOME/.go"
-export PATH="$PATH:$GOPATH/bin"
-

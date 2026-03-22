@@ -172,10 +172,10 @@ fzf-cd-widget() {
       --preview 'eza --tree --level=1 --color=always {}')
 
   if [[ -n "$dir" ]]; then
-    BUFFER="z ${(q)dir} && eza -a --icons --group-directories-first"
+    BUFFER="z ${(q)dir}"
       zle accept-line
   fi
-  
+ 
   zle reset-prompt
 }
 zle -N fzf-cd-widget

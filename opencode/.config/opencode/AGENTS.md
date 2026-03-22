@@ -40,3 +40,9 @@
 - **PREFER MODERN TOOLS:** Always use `rg` (ripgrep) instead of `grep` and `eza --icons --git` instead of `ls` when available.
 - **VERBOSE LISTING:** When using `eza`, prefer `-la` for a comprehensive view of the directory state.
 - **SMART SEARCH:** Use `rg` with its default smart filtering (respecting `.gitignore`) unless explicitly asked to search ignored files.
+
+## 8. Clean Room & CI/CD Execution Protocol
+- **ISOLATED WORKSPACES:** All development MUST occur in a disposable, short-lived environment (a dedicated Git branch like `agent/feat-name` or an isolated container). Never commit directly to `main` or `master`.
+- **PIPELINE AS THE JUDGE:** Local RED-GREEN-REFACTOR is the baseline, but the CI pipeline is the ultimate gatekeeper. The agent must run all project-level validation (linters, type-checkers, full test suites) within its isolated environment before proceeding.
+- **ATOMIC PULL REQUESTS:** Do not merge code directly. Once the isolated branch is fully verified, package the changes into a Pull Request (using `gh pr create` or equivalent). The PR description must explicitly document the original failing state (RED) and the implemented solution (GREEN).
+- **EPHEMERAL BRANCHING (STATE RESET):** If an approach fundamentally fails, results in a complex/tangled Git history, or hallucinates beyond the scope, ABANDON THE BRANCH. Do not try to fix a poisoned context. Create a fresh branch from the main repository to ensure a clean slate.
