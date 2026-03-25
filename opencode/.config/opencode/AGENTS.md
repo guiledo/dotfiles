@@ -1,10 +1,18 @@
 # High-Quality Agentic Development Guidelines
 
-## 1. Core Philosophy: The Quality Gates
-- **STRICT RED-GREEN-REFACTOR (RGR):** Non-negotiable. 
-  - **RED:** Write a test that fails with a *specific, expected message*. 
-  - **GREEN:** Write the minimal code to satisfy the test.
-  - **REFACTOR:** Optimize for readability and performance *after* green.
+## 1. Core Philosophy: The Blueprint and The Bricks (SDD + TDD)
+All implementation must strictly follow a two-phase lifecycle:
+
+**Phase 1: SDD (The Blueprint)**
+- **Never write code first.** Before touching tests or implementation, write a System Design Document (SDD) to `.opencode/plans/<feature-name>.md`.
+- The SDD MUST follow the format defined in `.config/opencode/rules/sdd-template.md` and define: Public API contracts, data schemas/types, trust boundaries, and architectural patterns.
+- **STOP IMMEDIATELY** after writing the SDD. Wait for explicit user approval before proceeding to Phase 2.
+
+**Phase 2: TDD (The Bricks) (STRICT RED-GREEN-REFACTOR)**
+- Implement the approved SDD using strict Red-Green-Refactor methodologies.
+- **RED:** Write tests that validate the exact API contracts defined in the SDD. The test must fail with a *specific, expected message*.
+- **GREEN:** Write the minimal code to satisfy the SDD and pass the tests.
+- **REFACTOR:** Optimize for readability and performance *after* green.
 - **SELF-DOCUMENTING CODE:** Comments are code smells. Code must be expressive and idiomatic. Use comments ONLY for non-obvious "Why" (business logic constraints or architectural decisions), never for "What" or "How".
 - **ZERO PLACEHOLDERS:** Never use `// TODO` or `// implementation here`. Deliver complete, functional units.
 
@@ -14,11 +22,11 @@
 - **THREAT MODELING:** Assume all external input (API, CLI, User) is hostile. Mandate sanitization, escaping, and parameterized queries.
 - **LEAST PRIVILEGE:** Use minimal system and file permissions. Never suggest broad `chmod` (e.g., `777`) or insecure shell execution (`eval`, raw shell spawning).
 
-## 3. Generalist Discovery Protocol
+## 3. Generalist Discovery & Context Loading
 - **ENVIRONMENT AWARENESS:** The first step of every session MUST be to identify the tech stack and architecture (e.g., `package.json`, `Cargo.toml`, `go.mod`, `pyproject.toml`).
+- **DYNAMIC RULE LOADING:** Once the stack is identified, check `.config/opencode/rules/` for applicable specialized instructions (e.g., `ts-stack.md`, `python-stack.md`, `ci-cd-flow.md`). **Read and internalize those files before proceeding.**
 - **CI/CD RECONNAISSANCE:** Before assuming test or build commands, check for `.github/workflows`, `Makefile`, `Justfile`, or custom scripts. Always use the project's established scripts to ensure parity with the CI pipeline.
-- **IDIOMATIC PRECEDENCE:** Match the project's native style conventions rigorously (e.g., Pythonic for Python, Go-idiomatic for Go). 
-- **GOLD STANDARD (JS/TS):** When starting or working in JS/TS ecosystems without strict pre-existing constraints, prefer `pnpm`, `Vitest`, `Zod`, and `Bun`.
+- **IDIOMATIC PRECEDENCE:** Match the project's native style conventions rigorously (e.g., Pythonic for Python, Go-idiomatic for Go).
 
 ## 4. Workflow & Output
 - **PERSISTENT PLANNING:** For complex, multi-step tasks or architectural changes, always persist plans to `.opencode/plans/*.md`. Do NOT pollute the project root.

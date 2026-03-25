@@ -65,9 +65,9 @@ alias wallpaper=''
 alias .='whoami && pwd'
 alias ..='cd ..'
 alias ...='cd ../..'
-alias dev='cd $HOME/Development'
-alias devw='cd $HOME/Development/work'
-alias devp='cd $HOME/Development/personal'
+alias dev='cd $HOME/development'
+alias devw='cd $HOME/development/work'
+alias devp='cd $HOME/development/personal'
 alias dot='cd $HOME/dotfiles/'
 alias fzf='fzf -e'
 alias hyprrc='nvim $HOME/.config/hypr/hyprland.conf'
@@ -239,8 +239,35 @@ reload() {
   fi
 }
 
-# If not running interactively, don't do anything
-case $- in
-  *i*) ;;
-  *) return ;;
-esac
+# --------------------------------------------------------------------------------
+# CURSOR MODE
+# --------------------------------------------------------------------------------
+
+# Change cursor shape for different vi modes
+# 2 = Steady Block (Normal Mode)
+# 5 = Blinking Beam (Insert Mode)
+# 4 = Steady Underline (Replace Mode - Optional)
+function zle-keymap-select {
+  if [[ $KEYMAP == vicmd ]]; then
+    echo -ne "\e[2 q"
+  else
+    echo -ne "\e[5 q"
+  fi
+}
+zle -N zle-keymap-select
+
+# Reset cursor to block on prompt init and when returning from command execution
+function _set_cursor_on_prompt {
+  # Default to Beam in Insert mode (main/viins) or Block in Normal mode (vicmd)
+  # If you use vi-mode, you usually want to start in Insert mode.
+  if [[ $KEYMAP == vicmd ]]; then
+    echo -ne "\e[2 q"
+  else
+    echo -ne "\e[5 q"
+  fi
+}
+precmd_functions+=(_set_cursor_on_prompt)
+
+# Use vi mode in shell
+bindkey -v
+export KEYTIMEOUT=1
