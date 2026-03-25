@@ -5,7 +5,13 @@ All implementation must strictly follow a two-phase lifecycle:
 
 **Phase 1: SDD (The Blueprint)**
 - **Never write code first.** Before touching tests or implementation, write a System Design Document (SDD) to `.opencode/plans/<feature-name>.md`.
-- The SDD MUST follow the format defined in `.config/opencode/rules/sdd-template.md` and define: Public API contracts, data schemas/types, trust boundaries, and architectural patterns.
+- **EMPIRICAL RECONNAISSANCE:** Before writing the SDD, you MUST explore the existing codebase (using `rg` and `eza`) to understand the current architecture, existing schemas, and established patterns. Your SDD must be grounded in the *current reality* of the project, not generic assumptions.
+- **SDD FORMAT:** The SDD MUST contain the following sections:
+  1. **Architecture Overview:** Goal and context of the feature.
+  2. **Public API Contracts:** Define interfaces, inputs, and outputs.
+  3. **Data Schemas & Types:** Strict typing and database models.
+  4. **Trust Boundaries & Security:** Input validation and permissions.
+  5. **Testing Strategy:** Scenarios and exact expected failures.
 - **STOP IMMEDIATELY** after writing the SDD. Wait for explicit user approval before proceeding to Phase 2.
 
 **Phase 2: TDD (The Bricks) (STRICT RED-GREEN-REFACTOR)**
@@ -24,7 +30,7 @@ All implementation must strictly follow a two-phase lifecycle:
 
 ## 3. Generalist Discovery & Context Loading
 - **ENVIRONMENT AWARENESS:** The first step of every session MUST be to identify the tech stack and architecture (e.g., `package.json`, `Cargo.toml`, `go.mod`, `pyproject.toml`).
-- **DYNAMIC RULE LOADING:** Once the stack is identified, check `.config/opencode/rules/` for applicable specialized instructions (e.g., `ts-stack.md`, `python-stack.md`, `ci-cd-flow.md`). **Read and internalize those files before proceeding.**
+- **DYNAMIC RULE LOADING:** Once the stack is identified, check both the global rule directory (`~/.config/opencode/rules/`) and the project-local rule directory (`.opencode/rules/`) for applicable specialized instructions (e.g., `ts-stack.md`, `python-stack.md`, `ci-cd-flow.md`). **Read and internalize those files before proceeding.**
 - **CI/CD RECONNAISSANCE:** Before assuming test or build commands, check for `.github/workflows`, `Makefile`, `Justfile`, or custom scripts. Always use the project's established scripts to ensure parity with the CI pipeline.
 - **IDIOMATIC PRECEDENCE:** Match the project's native style conventions rigorously (e.g., Pythonic for Python, Go-idiomatic for Go).
 
@@ -48,9 +54,12 @@ All implementation must strictly follow a two-phase lifecycle:
 - **PREFER MODERN TOOLS:** Always use `rg` (ripgrep) instead of `grep` and `eza --icons --git` instead of `ls` when available.
 - **VERBOSE LISTING:** When using `eza`, prefer `-la` for a comprehensive view of the directory state.
 - **SMART SEARCH:** Use `rg` with its default smart filtering (respecting `.gitignore`) unless explicitly asked to search ignored files.
+- **CONTEXT SAFETY:** When doing initial discovery, always prefer `rg -l` (list matching files) or `rg -C 0` (no surrounding context) to gauge the volume of results before dumping massive file contents into your workspace.
 
 ## 8. Clean Room & CI/CD Execution Protocol
-- **ISOLATED WORKSPACES:** All development MUST occur in a disposable, short-lived environment (a dedicated Git branch like `agent/feat-name` or an isolated container). Never commit directly to `main` or `master`.
+- **ISOLATED WORKSPACES:** All development MUST occur in a disposable, short-lived environment (a dedicated Git branch like `feat/<feature-name>` or `fix/<bug-name>`). Never commit directly to `main` or `master`.
+- **ATOMIC COMMITS (THE "SAVE GAME" RULE):** Do not wait until a feature is completely finished to commit. You MUST commit your work locally every time you successfully complete a "GREEN" phase in the TDD cycle. Use conventional commit messages (e.g., `feat:`, `fix:`, `test:`).
 - **PIPELINE AS THE JUDGE:** Local RED-GREEN-REFACTOR is the baseline, but the CI pipeline is the ultimate gatekeeper. The agent must run all project-level validation (linters, type-checkers, full test suites) within its isolated environment before proceeding.
-- **ATOMIC PULL REQUESTS:** Do not merge code directly. Once the isolated branch is fully verified, package the changes into a Pull Request (using `gh pr create` or equivalent). The PR description must explicitly document the original failing state (RED) and the implemented solution (GREEN).
+- **PUSHING & PULL REQUESTS:** NEVER push directly to `main` or `master`. You may only push code to your isolated feature branch. Only push to the remote when a feature is fully completed and verified locally, immediately followed by packaging the changes into a Pull Request (using `gh pr create` or equivalent). The PR description must explicitly document the original failing state (RED) and the implemented solution (GREEN).
 - **EPHEMERAL BRANCHING (STATE RESET):** If an approach fundamentally fails, results in a complex/tangled Git history, or hallucinates beyond the scope, ABANDON THE BRANCH. Do not try to fix a poisoned context. Create a fresh branch from the main repository to ensure a clean slate.
+- **TRIVIAL EXCEPTION:** For minor typo fixes, single-file scripts, or explicit 'quick hacks', you may commit directly to the current branch. All architectural changes or multi-file features MUST use the full Pull Request pipeline.

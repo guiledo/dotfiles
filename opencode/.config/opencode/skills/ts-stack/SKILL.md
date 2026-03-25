@@ -1,3 +1,7 @@
+---
+name: ts-stack
+description: Use this skill whenever you are working on a JavaScript, TypeScript, or Node.js project. It provides the required ecosystem tools, testing frameworks, and validation libraries.
+---
 # TypeScript / JavaScript Stack Rules
 
 When operating in a JS/TS environment, adhere to the following ecosystem preferences unless the project strictly dictates otherwise:

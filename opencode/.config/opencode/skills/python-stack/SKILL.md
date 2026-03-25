@@ -1,3 +1,7 @@
+---
+name: python-stack
+description: Use this skill whenever you are working on a Python project. It provides the required ecosystem tools, testing frameworks, and formatting rules.
+---
 # Python Stack Rules
 
 When operating in a Python environment, adhere to the following ecosystem preferences unless the project strictly dictates otherwise:
