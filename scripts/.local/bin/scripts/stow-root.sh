@@ -12,11 +12,10 @@ fi
 echo "--- Iniciando Sincronizacao de Arquivos de Sistema (Root) ---"
 
 # 1. Encontra todos os arquivos dentro da pasta root (recursivamente)
-# Usamos -type f para pegar apenas arquivos
-find "$SOURCE_DIR" -type f | while read -r src_file; do
+# Ignoramos arquivos que terminam em .bak
+find "$SOURCE_DIR" -type f ! -name "*.bak" | while read -r src_file; do
     
     # 2. Calcula o caminho relativo a partir da pasta 'root'
-    # Ex: /home/runner/dotfiles/.ignore_stow/root/etc/modprobe.d/fix.conf -> /etc/modprobe.d/fix.conf
     target_file="${src_file#$SOURCE_DIR}"
     target_dir=$(dirname "$target_file")
 
@@ -28,7 +27,6 @@ find "$SOURCE_DIR" -type f | while read -r src_file; do
     fi
 
     # 4. Cria o link simbolico forcado (-f) e informativo (-v)
-    # Usamos sudo ln para ter permissao de escrita em /etc, /usr, etc.
     sudo ln -sfv "$src_file" "$target_file"
 done
 

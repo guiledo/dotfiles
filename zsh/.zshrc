@@ -57,7 +57,8 @@ alias la='eza -alF --icons --group-directories-first --git'
 alias ll='eza -a --icons --group-directories-first'
 alias mkdir='mkdir -p'
 alias mkcd='func(){ mkdir -p "$1" && cd "$1" && eza -a --icons --group-directories-first; }; func'
-alias tree='eza --tree --icons'
+export EZA_IGNORE=$(grep -v '^#' ~/.ignore | sed '/^$/d' | tr '\n' '|' | sed 's/|$//' | sed 's|/||g')
+alias tree="eza --tree --icons --git-ignore -I '$EZA_IGNORE'"
 alias wallpaper=''
 
 # Navigation Aliases
@@ -94,8 +95,8 @@ alias kp='pkill -9'
 alias psg='ps aux | grep -i'
 
 # Search Aliases
-alias fd='fd -H -I '
-alias rg='rg --max-columns 300 --one-file-system --hidden --glob "!**/.cache/*" --glob "!**/cache/*" --glob "!**/tmp/*" --glob "!**/.tmp/*" --glob "!**/node_modules/*" --glob "!**/.venv/*" --glob "!**/target/*" --glob "!**/.git/*" --glob "!**/.ssh/*" --glob "!**/.gnupg/*" --glob "!**/.local/share/*" --glob "!**/.cargo/*" --glob "!**/.rustup/*" --glob "!**/.npm/*" --glob "!**/.bun/*" --glob "!**/.local/state/*" --glob "!**/.zsh_history" --glob "!**/.zcompdump*" '
+alias fd='fd -H'
+alias rg='rg --max-columns 300 --one-file-system --hidden'
 
 # Processes, Shell & System Aliases
 alias cls='clear'
@@ -131,6 +132,7 @@ alias repo="$HOME/.local/bin/scripts/git-repo-init"
 # Stow/dotfiles Aliases
 alias newpkg='$HOME/dotfiles/.ignore_stow/packages/backup_packages.sh'
 alias syncdot='$HOME/dotfiles/.ignore_stow/git_push_dotfiles.sh'
+alias stow-root='$HOME/dotfiles/scripts/.local/bin/scripts/stow-root.sh'
 
 # Functions
 fzf-open-file-in-nvim-widget() {
