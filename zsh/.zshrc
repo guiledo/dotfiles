@@ -127,7 +127,7 @@ alias gs='git status -s'
 alias gsw='git switch'
 alias gu='git pull'
 alias gunstage='git reset HEAD --'
-alias repo="$HOME/.local/bin/scripts/git-repo-init"
+alias git-repo="$HOME/.local/bin/scripts/git-repo-init"
 
 # Stow/dotfiles Aliases
 alias newpkg='$HOME/dotfiles/.ignore_stow/packages/backup_packages.sh'
