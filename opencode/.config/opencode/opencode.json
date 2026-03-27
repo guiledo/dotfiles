@@ -23,7 +23,7 @@
     },
     "mentor": {
       "hidden": false,
-      "mode": "subagent",
+      "mode": "primary",
       "instructions": [
         "~/.config/opencode/rules/cs-mentor.md"
       ],
