@@ -58,6 +58,7 @@ francis
 fuse2
 fzf
 ghostwriter
+gimp
 git
 github-cli
 gitleaks
