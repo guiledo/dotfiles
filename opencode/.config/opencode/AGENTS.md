@@ -30,7 +30,6 @@ All implementation must strictly follow a two-phase lifecycle:
 
 ## 3. Generalist Discovery & Context Loading
 - **ENVIRONMENT AWARENESS:** The first step of every session MUST be to identify the tech stack and architecture (e.g., `package.json`, `Cargo.toml`, `go.mod`, `pyproject.toml`).
-- **DYNAMIC RULE LOADING:** Once the stack is identified, check both the global rule directory (`~/.config/opencode/rules/`) and the project-local rule directory (`.opencode/rules/`) for applicable specialized instructions (e.g., `ts-stack.md`, `python-stack.md`, `ci-cd-flow.md`). **Read and internalize those files before proceeding.**
 - **CI/CD RECONNAISSANCE:** Before assuming test or build commands, check for `.github/workflows`, `Makefile`, `Justfile`, or custom scripts. Always use the project's established scripts to ensure parity with the CI pipeline.
 - **IDIOMATIC PRECEDENCE:** Match the project's native style conventions rigorously (e.g., Pythonic for Python, Go-idiomatic for Go).
 
