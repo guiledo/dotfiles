@@ -4,8 +4,8 @@ export ZDOTDIR="$HOME"
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$HOME/.cargo/bin:$PATH"
 
 # Environment Variables
-export DL="$HOME/Downloads/"
-export DOCS="$HOME/Documents/"
+export DL="$HOME/downloads/"
+export DOCS="$HOME/documents/"
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 export STARSHIP_CACHE=$HOME/.starship/cache
 export EDITOR=nvim
