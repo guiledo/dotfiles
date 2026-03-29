@@ -127,7 +127,7 @@ Reference these guidelines when:
 
 ## How to Use
 
-Read individual rule files for detailed explanations and code examples:
+**CRITICAL AGENT INSTRUCTION (Context Efficiency):** DO NOT blindly read all files in the `rules/` directory. Always use search tools to find the specific rule based on the user's issue before opening a file. Read individual rule files ONLY when you have identified a direct need for their detailed explanations:
 
 ```
 rules/async-parallel.md

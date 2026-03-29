@@ -1,6 +1,6 @@
 ---
 name: webapp-testing
-description: Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.
+description: Toolkit for interacting with and testing local web applications using native Python Playwright scripts. Use ONLY when writing explicit automation scripts to test local web apps, verifying frontend behavior, or debugging UI during local development. Do not use for generic web scraping (use browser-use instead).
 ---
 
 # Web Application Testing

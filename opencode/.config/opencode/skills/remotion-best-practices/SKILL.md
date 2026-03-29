@@ -1,6 +1,6 @@
 ---
 name: remotion-best-practices
-description: Best practices for Remotion - Video creation in React
+description: "Best practices for Remotion - Video creation in React. Make sure to use this skill whenever the user asks for help creating videos, rendering animations, working with the Remotion library, handling video frames, or audio in a React context."
 metadata:
   tags: remotion, video, react, animation, composition
 ---
@@ -26,6 +26,8 @@ When needing to visualize audio (spectrum bars, waveforms, bass-reactive effects
 When needing to use sound effects, load the [./rules/sound-effects.md](./rules/sound-effects.md) file for more information.
 
 ## How to use
+
+**CRITICAL AGENT INSTRUCTION (Context Efficiency):** DO NOT blindly read all files in the `./rules` directory. Always use the `grep_search` tool first to find specific keywords related to your current task before reading an entire rule file. Read individual rule files ONLY when you have identified a direct need for their detailed explanations.
 
 Read individual rule files for detailed explanations and code examples:
 
