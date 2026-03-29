@@ -1,2 +1,0 @@
-# Add your LLM provider here (e.g. openai>=1.0.0 or litellm>=1.0.0)
-mcp>=1.1.0
