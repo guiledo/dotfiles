@@ -24,3 +24,13 @@
 - **SYSTEMATIC DEBUGGING (ANTI-LOOP):** Never "guess and check". If a test or command fails, you must explicitly state a hypothesis for *why* it failed before changing code. If you fail 3 times on the same issue, STOP and ask the user for guidance. Do not brute-force solutions.
 - **EXPLICIT AMBIGUITY RESOLUTION:** If a requirement is missing or ambiguous, STOP and ask the user. Never invent or hallucinate business logic, schema requirements, or architectural constraints.
 - **CLEAN COMMITS:** Final code must be production-ready. Always remove exploratory debugging statements (e.g., `console.log`, `print`, `dbg!`), unused imports, and mock data before declaring a task complete.
+
+## 6. Toolchain Consistency & Defaults
+- **USER INTENT SUPREMACY:** Direct user instructions ALWAYS override these guidelines. If the user explicitly requests a specific tool, runtime, or library, follow that instruction without hesitation or counter-proposals.
+- **ABSOLUTE STACK CONSISTENCY:** Rigorously respect the existing project architecture. Never suggest or initiate migrations to different package managers, runtimes, or frameworks unless explicitly asked for a technical evaluation of the current stack.
+- **LOCKFILE INTEGRITY:** Always use the tool corresponding to the existing lockfile (`pnpm-lock.yaml`, `package-lock.json`, etc.). Never allow the creation of dual lockfiles.
+- **GREENFIELD DEFAULTS (No Existing Stack/Instruction):** Only when the user has not specified a tool AND there is no existing stack, use these market-standard defaults:
+  - **JS/TS Management:** `pnpm`.
+  - **Local Scripts/DX:** `Bun`.
+  - **Production Runtimes:** `Node.js (LTS)`.
+  - **Python:** `uv` or `poetry`.
