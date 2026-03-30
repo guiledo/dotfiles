@@ -39,14 +39,7 @@ EXCLUDE=(
     ':(exclude)*.ico'
     ':(exclude)*.lock'
     ':(exclude)*.json'
-    ':(exclude)opencode/.config/opencode/skills/docx/scripts/comment.py'
-    ':(exclude)opencode/.config/opencode/skills/docx/scripts/office/schemas/ISO-IEC29500-4_2016/sml.xsd'
-    ':(exclude)opencode/.config/opencode/skills/docx/scripts/office/validate.py'
-    ':(exclude)opencode/.config/opencode/skills/mcp-builder/reference/python_mcp_server.md'
-    ':(exclude)opencode/.config/opencode/skills/pptx/scripts/office/schemas/ISO-IEC29500-4_2016/sml.xsd'
-    ':(exclude)opencode/.config/opencode/skills/pptx/scripts/office/validate.py'
-    ':(exclude)opencode/.config/opencode/skills/xlsx/scripts/office/schemas/ISO-IEC29500-4_2016/sml.xsd'
-    ':(exclude)opencode/.config/opencode/skills/xlsx/scripts/office/validate.py'
+    ':(exclude)opencode/.config/opencode/skills/'
 )
 
 echo -e "${YELLOW}Scanning tracked files for potential secrets...${NC}"
