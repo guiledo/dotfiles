@@ -34,3 +34,4 @@
   - **Local Scripts/DX:** `Bun`.
   - **Production Runtimes:** `Node.js (LTS)`.
   - **Python:** `uv` or `poetry`.
+- **PORTABLE SHEBANGS:** Always use `#!/usr/bin/env bash` (or the respective interpreter) for shell scripts instead of hardcoded paths like `#!/bin/bash` to ensure cross-platform compatibility.
