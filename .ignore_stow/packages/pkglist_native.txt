@@ -75,7 +75,7 @@ hyprpaper
 hyprpicker
 hyprpolkitagent
 intel-ucode
-iptables-nft
+iptables
 isoimagewriter
 itinerary
 jq
