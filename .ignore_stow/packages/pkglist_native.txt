@@ -313,6 +313,7 @@ qrca
 reflector
 rocs
 rofi
+rsync
 sddm
 sddm-kcm
 signon-kwallet-extension
