@@ -5,3 +5,5 @@
 	hooksPath = /home/runner/.config/git/hooks
 [init]
 	templateDir = ~/.config/git/templates
+[fetch]
+	prune = true
