@@ -58,6 +58,7 @@ flatpak-kcm
 francis
 fuse2
 fzf
+gamemode
 ghostwriter
 gimp
 git
@@ -229,6 +230,7 @@ kwin-x11
 kwordquiz
 kwrited
 layer-shell-qt
+lib32-gamemode
 lib32-nvidia-utils
 libappindicator
 libkscreen
@@ -303,6 +305,7 @@ plasma5support
 plasmatube
 plymouth-kcm
 polkit-kde-agent
+power-profiles-daemon
 powerdevil
 poxml
 print-manager
