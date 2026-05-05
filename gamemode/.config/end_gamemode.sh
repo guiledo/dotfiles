@@ -1,0 +1,2 @@
+#!/bin/bash
+/usr/bin/dbus-send --system --print-reply --dest=net.hadess.PowerProfiles /net/hadess/PowerProfiles org.freedesktop.DBus.Properties.Set string:net.hadess.PowerProfiles string:ActiveProfile variant:string:balanced
