@@ -1,4 +1,3 @@
-cursor-bin
 dell-g15-controller
 neofetch
 paru
