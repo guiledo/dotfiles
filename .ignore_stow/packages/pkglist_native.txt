@@ -231,6 +231,7 @@ kwordquiz
 kwrited
 layer-shell-qt
 lib32-gamemode
+lib32-gtk3
 lib32-nvidia-utils
 libappindicator
 libkscreen
