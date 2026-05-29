@@ -330,7 +330,6 @@ snapper
 sof-firmware
 spectacle
 starship
-steam
 step
 stow
 sudo
