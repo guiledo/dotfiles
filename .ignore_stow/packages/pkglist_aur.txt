@@ -1,7 +1,0 @@
-dell-g15-controller
-neofetch
-paru
-paru-debug
-protonup-qt-bin
-voxtype
-zapzap
