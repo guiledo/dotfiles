@@ -271,3 +271,7 @@ precmd_functions+=(_set_cursor_on_prompt)
 # Use vi mode in shell
 bindkey -v
 export KEYTIMEOUT=1
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/runner/.local/bin:$PATH"
