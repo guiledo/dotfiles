@@ -76,6 +76,7 @@ hyprland
 hyprpaper
 hyprpicker
 hyprpolkitagent
+intel-media-driver
 intel-ucode
 iptables
 isoimagewriter

@@ -5,4 +5,3 @@ paru-debug
 protonup-qt-bin
 ventoy-bin
 voxtype
-zapzap
