@@ -5,5 +5,5 @@ if hyprctl clients -j | jq -e '.[] | select(.class | match("(?i)vivaldi"))' > /d
     hyprctl dispatch focuswindow "class:.*(?i)vivaldi.*"
 else
     hyprctl dispatch workspace 2
-    hyprctl dispatch exec vivaldi
+    hyprctl dispatch exec "vivaldi --ozone-platform=wayland --enable-features=UseOzonePlatform --use-gl=desktop --use-cmd-decoder=validating"
 fi
