@@ -81,6 +81,7 @@ intel-ucode
 iptables
 isoimagewriter
 itinerary
+jdk25-openjdk
 jq
 juk
 k3b
