@@ -1,0 +1,4 @@
+configuration {
+    kb-mode-next: "Alt+Tab,Shift+Right,Control+Tab";
+    kb-mode-previous: "Alt+Shift+Tab,Alt+ISO_Left_Tab,Shift+Left,Control+ISO_Left_Tab";
+}
