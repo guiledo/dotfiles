@@ -320,6 +320,7 @@ qrca
 reflector
 rocs
 rofi
+rofi-calc
 rsync
 sbctl
 sddm
