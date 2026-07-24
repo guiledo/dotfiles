@@ -1,6 +1,9 @@
 {
     "layer": "top",
     "position": "top",
+    "margin-top": 10,
+    "margin-left": 10,
+    "margin-right": 10,
     "height": 30,
     //"mode": "hide",
     "on-sigusr1": "hide",
@@ -10,8 +13,8 @@
     "passthrough": false,
     "gtk-layer-shell": true,
     "modules-left": ["custom/autohide", "hyprland/workspaces", "hyprland/submap"],
-    //"modules-center": ["hyprland/window"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "clock", "tray"],
+    "modules-center": ["clock"],
+    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "tray"],
 
     "custom/autohide": {
     "exec": "$HOME/.config/waybar/modules/WaybarAutoHide",
@@ -20,7 +23,7 @@
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
-        "format": "{name}: {icon}",
+        "format": "{icon}",
         "format-icons": {
             "1": "󰆍",
             "2": "󰖟",
