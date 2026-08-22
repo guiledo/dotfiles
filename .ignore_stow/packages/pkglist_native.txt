@@ -313,6 +313,7 @@ powerdevil
 poxml
 print-manager
 python-pip
+python-pipx
 qbittorrent
 qemu-full
 qqc2-breeze-style
