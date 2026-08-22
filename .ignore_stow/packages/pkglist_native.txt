@@ -323,6 +323,7 @@ rofi
 rofi-calc
 rsync
 sbctl
+scrcpy
 sddm
 sddm-kcm
 signon-kwallet-extension
