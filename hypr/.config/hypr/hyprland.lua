@@ -333,33 +333,33 @@ hl.bind("CTRL" .. " + " .. "Print", hl.dsp.exec_cmd("grim -g \"$(slurp)\"-| swap
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Binds/ for more
 
-hl.bind(mainMod .. " + " .. "U", hl.dsp.exec_cmd("/home/runner/dotfiles/hypr/.config/hypr/scripts/summon_code-workspace.sh 1 kitty"))
+hl.bind(mainMod .. " + " .. "u", hl.dsp.exec_cmd("/home/runner/dotfiles/hypr/.config/hypr/scripts/summon_code-workspace.sh 1 kitty"))
 
-hl.bind(mainMod .. " + " .. "I", hl.dsp.exec_cmd("/home/runner/dotfiles/hypr/.config/hypr/scripts/summon_vivaldi.sh"))
+hl.bind(mainMod .. " + " .. "i", hl.dsp.exec_cmd("/home/runner/dotfiles/hypr/.config/hypr/scripts/summon_vivaldi.sh"))
 
-hl.bind(mainMod .. " + " .. "O", hl.dsp.exec_cmd("/home/runner/dotfiles/hypr/.config/hypr/scripts/summon_betterbird.sh"))
+hl.bind(mainMod .. " + " .. "o", hl.dsp.exec_cmd("/home/runner/dotfiles/hypr/.config/hypr/scripts/summon_betterbird.sh"))
 
-hl.bind(mainMod .. " + " .. "P", hl.dsp.exec_cmd("/home/runner/dotfiles/hypr/.config/hypr/scripts/summon_obsidian.sh"))
+hl.bind(mainMod .. " + " .. "p", hl.dsp.exec_cmd("/home/runner/dotfiles/hypr/.config/hypr/scripts/summon_obsidian.sh"))
 
-hl.bind(mainMod .. " + " .. "Q", hl.dsp.window.close())
+hl.bind(mainMod .. " + " .. "q", hl.dsp.window.close())
 
 hl.bind(mainMod .. " + " .. "escape", hl.dsp.exec_cmd("systemctl suspend"))
 
-hl.bind(mainMod .. " + " .. "M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"))
+hl.bind(mainMod .. " + " .. "m", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"))
 
-hl.bind(mainMod .. " + " .. "E", hl.dsp.exec_cmd("dolphin"))
+hl.bind(mainMod .. " + " .. "e", hl.dsp.exec_cmd("dolphin"))
 
-hl.bind(mainMod .. " + " .. "F", hl.dsp.window.fullscreen())
+hl.bind(mainMod .. " + " .. "f", hl.dsp.window.fullscreen())
 
 --bind = $mainMod, V, togglefloating,
 
-hl.bind(mainMod .. " + " .. "V", hl.dsp.exec_cmd("voxtype record start"))
+hl.bind(mainMod .. " + " .. "v", hl.dsp.exec_cmd("voxtype record start"))
 
-hl.bind(mainMod .. " + " .. "V", hl.dsp.exec_cmd("voxtype record stop"), { repeating = true })
+hl.bind(mainMod .. " + " .. "v", hl.dsp.exec_cmd("voxtype record stop"), { repeating = true })
 
 --bind = $mainMod, R, exec, $menu
 
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "P", hl.dsp.window.pseudo())
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "p", hl.dsp.window.pseudo())
 
 -- dwindle
 
@@ -389,61 +389,61 @@ hl.bind(mainMod .. " + " .. "CTRL" .. " + " .. "j", hl.dsp.focus({ direction = "
 
 -- Switch workspaces with mainMod + [0-9]
 
-hl.bind(mainMod .. " + " .. 1, hl.dsp.focus({ workspace = 5 }))
+hl.bind(mainMod .. " + " .. 1, hl.dsp.focus({ workspace = "5" }))
 
-hl.bind(mainMod .. " + " .. 2, hl.dsp.focus({ workspace = 6 }))
+hl.bind(mainMod .. " + " .. 2, hl.dsp.focus({ workspace = "6" }))
 
-hl.bind(mainMod .. " + " .. 3, hl.dsp.focus({ workspace = 7 }))
+hl.bind(mainMod .. " + " .. 3, hl.dsp.focus({ workspace = "7" }))
 
-hl.bind(mainMod .. " + " .. 4, hl.dsp.focus({ workspace = 8 }))
+hl.bind(mainMod .. " + " .. 4, hl.dsp.focus({ workspace = "8" }))
 
-hl.bind(mainMod .. " + " .. 5, hl.dsp.focus({ workspace = 9 }))
+hl.bind(mainMod .. " + " .. 5, hl.dsp.focus({ workspace = "9" }))
 
-hl.bind(mainMod .. " + " .. 6, hl.dsp.focus({ workspace = 10 }))
+hl.bind(mainMod .. " + " .. 6, hl.dsp.focus({ workspace = "10" }))
 
-hl.bind(mainMod .. " + " .. 7, hl.dsp.focus({ workspace = 11 }))
+hl.bind(mainMod .. " + " .. 7, hl.dsp.focus({ workspace = "11" }))
 
-hl.bind(mainMod .. " + " .. 8, hl.dsp.focus({ workspace = 12 }))
+hl.bind(mainMod .. " + " .. 8, hl.dsp.focus({ workspace = "12" }))
 
-hl.bind(mainMod .. " + " .. 9, hl.dsp.focus({ workspace = 13 }))
+hl.bind(mainMod .. " + " .. 9, hl.dsp.focus({ workspace = "13" }))
 
-hl.bind(mainMod .. " + " .. 0, hl.dsp.focus({ workspace = 14 }))
+hl.bind(mainMod .. " + " .. 0, hl.dsp.focus({ workspace = "14" }))
 
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "U", hl.dsp.window.move({ workspace = 1 }))
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "u", hl.dsp.window.move({ workspace = "1" }))
 
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "I", hl.dsp.window.move({ workspace = 2 }))
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "i", hl.dsp.window.move({ workspace = "2" }))
 
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "O", hl.dsp.window.move({ workspace = 3 }))
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "o", hl.dsp.window.move({ workspace = "3" }))
 
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "P", hl.dsp.window.move({ workspace = 4 }))
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "p", hl.dsp.window.move({ workspace = "4" }))
 
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 1, hl.dsp.window.move({ workspace = 5 }))
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 1, hl.dsp.window.move({ workspace = "5" }))
 
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 2, hl.dsp.window.move({ workspace = 6 }))
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 2, hl.dsp.window.move({ workspace = "6" }))
 
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 3, hl.dsp.window.move({ workspace = 7 }))
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 3, hl.dsp.window.move({ workspace = "7" }))
 
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 4, hl.dsp.window.move({ workspace = 8 }))
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 4, hl.dsp.window.move({ workspace = "8" }))
 
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 5, hl.dsp.window.move({ workspace = 9 }))
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 5, hl.dsp.window.move({ workspace = "9" }))
 
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 6, hl.dsp.window.move({ workspace = 10 }))
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 6, hl.dsp.window.move({ workspace = "10" }))
 
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 7, hl.dsp.window.move({ workspace = 11 }))
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 7, hl.dsp.window.move({ workspace = "11" }))
 
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 8, hl.dsp.window.move({ workspace = 12 }))
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 8, hl.dsp.window.move({ workspace = "12" }))
 
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 9, hl.dsp.window.move({ workspace = 13 }))
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 9, hl.dsp.window.move({ workspace = "13" }))
 
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 0, hl.dsp.window.move({ workspace = 14 }))
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. 0, hl.dsp.window.move({ workspace = "14" }))
 
 -- Example special workspace (scratchpad)
 
-hl.bind(mainMod .. " + " .. "S", hl.dsp.workspace.toggle_special("magic"))
+hl.bind(mainMod .. " + " .. "s", hl.dsp.workspace.toggle_special("magic"))
 
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "S", hl.dsp.window.move({ workspace = "special:magic" }))
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "s", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Scroll through existing workspaces with mainMod + scroll
 
@@ -513,7 +513,7 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true 
 
 -- Group Navigation and Management
 
-hl.bind(mainMod .. " + " .. "G", hl.dsp.group.toggle())
+hl.bind(mainMod .. " + " .. "g", hl.dsp.group.toggle())
 
 -- Toggle window group (stack)
 
@@ -535,7 +535,7 @@ hl.bind(mainMod .. " + " .. "ALT" .. " + " .. "k", hl.dsp.window.move({ into_gro
 
 hl.bind(mainMod .. " + " .. "ALT" .. " + " .. "j", hl.dsp.window.move({ into_group = "down" }))
 
-hl.bind(mainMod .. " + " .. "ALT" .. " + " .. "G", hl.dsp.window.move({ out_of_group = true }))
+hl.bind(mainMod .. " + " .. "ALT" .. " + " .. "g", hl.dsp.window.move({ out_of_group = true }))
 
 -- Eject window from stack
 

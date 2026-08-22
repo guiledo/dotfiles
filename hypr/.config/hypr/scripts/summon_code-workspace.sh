@@ -4,10 +4,10 @@ CLASS=$2
 EXEC_CMD=${3:-$CLASS}
 
 if hyprctl clients -j | jq -e ".[] | select(.class | match(\"(?i)$CLASS\"))" > /dev/null; then
-    hyprctl dispatch movetoworkspacesilent "$WORKSPACE,class:.*(?i)$CLASS.*"
-    hyprctl dispatch workspace "$WORKSPACE"
-    hyprctl dispatch focuswindow "class:.*(?i)$CLASS.*"
+    hyprctl dispatch "hl.dsp.window.move({ workspace = \"$WORKSPACE\", window = \"class:.*(?i)$CLASS.*\", follow = false })"
+    hyprctl dispatch "hl.dsp.focus({ workspace = \"$WORKSPACE\" })"
+    hyprctl dispatch "hl.dsp.focus({ window = \"class:.*(?i)$CLASS.*\" })"
 else
-    hyprctl dispatch workspace "$WORKSPACE"
-    hyprctl dispatch exec "$EXEC_CMD"
+    hyprctl dispatch "hl.dsp.focus({ workspace = \"$WORKSPACE\" })"
+    hyprctl dispatch "hl.dsp.exec_cmd(\"$EXEC_CMD\")"
 fi
