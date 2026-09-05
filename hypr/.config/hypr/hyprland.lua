@@ -321,15 +321,15 @@ hl.bind("Pause", hl.dsp.exec_cmd("pkill rofi || rofi -show drun -modi drun,calc"
 
 -- Screenshot: Full Screen (Clipboard)
 
-hl.bind("Print", hl.dsp.exec_cmd("grim-| wl-copy"))
+hl.bind("Print", hl.dsp.exec_cmd("grim - | wl-copy"))
 
 -- Screenshot: Select Region (Clipboard)
 
-hl.bind("SHIFT" .. " + " .. "Print", hl.dsp.exec_cmd("grim -g \"$(slurp)\"-| wl-copy"))
+hl.bind("SHIFT" .. " + " .. "Print", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | wl-copy"))
 
 -- Screenshot: Select Region -> Edit (Swappy)
 
-hl.bind("CTRL" .. " + " .. "Print", hl.dsp.exec_cmd("grim -g \"$(slurp)\"-| swappy -f-"))
+hl.bind("CTRL" .. " + " .. "Print", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | swappy -f -"))
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Binds/ for more
 
