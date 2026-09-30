@@ -321,7 +321,7 @@ hl.bind("Pause", hl.dsp.exec_cmd("pkill rofi || rofi -show drun -modi drun,calc"
 
 -- Screenshot: Full Screen (Clipboard)
 
-hl.bind("Print", hl.dsp.exec_cmd("grim - | wl-copy"))
+hl.bind("Print", hl.dsp.exec_cmd("grim ~/pictures/screenshots/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png"))
 
 -- Screenshot: Select Region (Clipboard)
 
