@@ -1,5 +1,6 @@
 dell-g15-controller
 droidcam
+lsfg-vk-bin
 neofetch
 paru
 paru-debug
